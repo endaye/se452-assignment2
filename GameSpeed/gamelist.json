@@ -25,6 +25,14 @@
 		"discount" : 10.0
 	},
 	{
+		"name" : "Prototype - Biozard Bundle",
+		"price" : 49.99,
+		"image" : "activision_prot.jpg",
+		"retailer" : "Activision", 
+		"condition" : "New",
+		"discount" : 15.0
+	},
+	{
 		"name" : "Evolve",
 		"price" : 49.99,
 		"image" : "tti_evolve.jpg",
@@ -33,12 +41,12 @@
 		"discount" : 10.0
 	},
 	{
-		"name" : "dddddddd",
-		"price" : 90.99,
-		"image" : "tti_evolve.jpg",
+		"name" : "Grand Theft Auto V",
+		"price" : 29.99,
+		"image" : "tti_gta.jpg",
 		"retailer" : "Take-Two Interactive", 
 		"condition" : "New",
-		"discount" : 10.0
+		"discount" : 15.0
 	}
 	]
 
