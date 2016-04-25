@@ -39,10 +39,11 @@ public class Helper {
 						+ "<li><a href='Account'>Account</a></li>"
 						+ "<li><a href='Logout'>Logout</a></li>";
 			}
-			else
+			else {
 				result = result + "<li><a href='Login'>Login</a></li>";
+			}
 			result = result
-					+ "<li><a href='Cart'>Cart("+CartCount()+")</a></li></ul></div></div><div id='page'>";
+					+ "<li class='end'><a href='Cart'>Cart("+CartCount()+")</a></li></ul></nav><div id='page'>";
 			pw.print(result);
 		} else
 			pw.print(result);

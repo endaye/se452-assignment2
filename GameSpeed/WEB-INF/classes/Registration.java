@@ -86,8 +86,9 @@ public class Registration extends HttpServlet {
 		pw.print("<h2 class='title meta'><a style='font-size: 24px;'>Login</a></h2>"
 				+ "<div class='entry'>"
 				+ "<div style='width:400px; margin:25px; margin-left: auto;margin-right: auto;'>");
-		if (error)
+		if (error) {
 			pw.print("<h4 style='color:red'>"+error_msg+"</h4>");
+		}
 		pw.print("<form method='post' action='Registration'>"
 				+ "<table style='width:100%'><tr><td>"
 				+ "<h3>Username</h3></td><td><input type='text' name='username' value='' class='input' required></input>"
