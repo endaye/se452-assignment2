@@ -1,0 +1,45 @@
+{
+	"games" : [
+	{
+		"name" : "FIFA 2016",
+		"price" : 59.99,
+		"image" : "ea_fifa.jpg",
+		"retailer" : "Electronic Arts", 
+		"condition" : "New",
+		"discount" : 10.0
+	}, 
+	{
+		"name" : "Need for Speed",
+		"price" : 59.99,
+		"image" : "ea_nfs.jpg",
+		"retailer" : "Electronic Arts", 
+		"condition" : "New",
+		"discount" : 10.0
+	}, 
+	{
+		"name" : "Call Of Duty",
+		"price" : 54.99,
+		"image" : "activision_cod.jpg",
+		"retailer" : "Activision", 
+		"condition" : "New",
+		"discount" : 10.0
+	},
+	{
+		"name" : "Evolve",
+		"price" : 49.99,
+		"image" : "tti_evolve.jpg",
+		"retailer" : "Take-Two Interactive", 
+		"condition" : "New",
+		"discount" : 10.0
+	},
+	{
+		"name" : "dddddddd",
+		"price" : 90.99,
+		"image" : "tti_evolve.jpg",
+		"retailer" : "Take-Two Interactive", 
+		"condition" : "New",
+		"discount" : 10.0
+	}
+	]
+
+}
