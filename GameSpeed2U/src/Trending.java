@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Trending")
+@WebServlet(name = "Trending", urlPatterns = "/Trending")
 
 public class Trending extends HttpServlet {
 	protected void doGet(HttpServletRequest request,

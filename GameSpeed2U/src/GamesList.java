@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/GamesList")
+@WebServlet(name = "GameeList", urlPatterns = "/GamesList")
 public class GamesList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,11 +45,14 @@ public class GamesList extends HttpServlet {
 		
 		Helper helper = new Helper(request,pw);
 		helper.printHtml("site_header.html");
-		helper.printHtml("site_sidebar.html");
 		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 		pw.print("<a style='font-size: 24px;'>"+name+" Games</a>");
-		pw.print("</h2><div class='entry'><table id='bestseller'>");
-		int i = 1; int size= hm.size();
+        pw.print("</h2><p>" + hm.size()+ "</p>");
+        pw.print("</h2><p>" + GameHashMap.electronicArts.size()+ "</p>");
+        pw.print("</h2><p>" + GameHashMap.activision.size()+ "</p>");
+        pw.print("</h2><p>" + GameHashMap.takeTwoInteractive.size()+ "</p>");
+        pw.print("</h2><div class='entry'><table id='bestseller'>");
+        int i = 1; int size= hm.size();
 		for(Map.Entry<String, Game> entry : hm.entrySet()){
 			Game game = entry.getValue();
 			if(i%3==1) pw.print("<tr>");
@@ -69,7 +72,9 @@ public class GamesList extends HttpServlet {
 			if(i%3==0 || i == size) pw.print("</tr>");
 			i++;
 		}		
-		pw.print("</table></div></div></div>");		
+		pw.print("</table></div></div></div>");
+
+		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");
 		
 	}

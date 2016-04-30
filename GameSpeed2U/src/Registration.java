@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Registration")
+@WebServlet(name = "Registration", urlPatterns = "/Registration")
 public class Registration extends HttpServlet {
 	private String error_msg;
 

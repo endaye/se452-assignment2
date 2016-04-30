@@ -17,8 +17,8 @@ public class Home extends HttpServlet {
 		
 		Helper helper = new Helper(request,pw);
 		helper.printHtml("site_header.html");
-		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_home.html");
+		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");
 				
 	}

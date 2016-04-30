@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ConsoleList")
+@WebServlet(name = "ConsoleList", urlPatterns = "/ConsoleList")
 public class ConsoleList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,7 +20,7 @@ public class ConsoleList extends HttpServlet {
 		String name = null;
 		String CategoryName = request.getParameter("maker");
 		HashMap<String, Console> hm = new HashMap<String, Console>();
-		if(CategoryName==null){
+        if(CategoryName==null){
 			hm.putAll(ConsoleHashMap.microsoft);
 			hm.putAll(ConsoleHashMap.sony);
 			hm.putAll(ConsoleHashMap.nintendo);
@@ -42,11 +42,11 @@ public class ConsoleList extends HttpServlet {
 		
 		Helper helper = new Helper(request,pw);
 		helper.printHtml("site_header.html");
-		helper.printHtml("site_sidebar.html");
 		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 		pw.print("<a style='font-size: 24px;'>"+name+" Consoles</a>");
 		pw.print("</h2><div class='entry'><table id='bestseller'>");
-		int i = 1; int size= hm.size();
+		int i = 1;
+        int size= hm.size();
 		for(Map.Entry<String, Console> entry : hm.entrySet()){
 			Console console = entry.getValue();
 			if(i%3==1) pw.print("<tr>");
@@ -66,7 +66,9 @@ public class ConsoleList extends HttpServlet {
 			if(i%3==0 || i == size) pw.print("</tr>");
 			i++;
 		}		
-		pw.print("</table></div></div></div>");		
+		pw.print("</table></div></div></div>");
+
+		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");
 		
 	}

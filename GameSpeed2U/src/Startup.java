@@ -4,7 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
-@WebServlet("/Startup")
+@WebServlet(name = "Startup", urlPatterns = "/Startup")
 public class Startup extends HttpServlet
 {
 

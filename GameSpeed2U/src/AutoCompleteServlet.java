@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Iterator;
 
-@WebServlet("/autocomplete")
+@WebServlet(name = "autocomplete", urlPatterns = "/autocomplete")
 public class AutoCompleteServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
