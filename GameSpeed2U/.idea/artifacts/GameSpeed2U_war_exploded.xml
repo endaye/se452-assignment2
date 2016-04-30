@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="GameSpeed2U:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/GameSpeed2U_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="GameSpeed2U/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="GameSpeed2U" />
+        </element>
+        <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+      </element>
+    </root>
+  </artifact>
+</component>
