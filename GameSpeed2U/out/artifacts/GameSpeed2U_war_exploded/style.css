@@ -254,6 +254,11 @@ nav ul {
 	margin: 0;
 }
 
+nav #login {
+	float: right;
+}
+
+
 nav ul li {
 	float: left;
 	display: block;
@@ -279,7 +284,6 @@ nav ul li.selected a:hover {
 	color: #fff; 
 	font-weight:bold;
 }
-
 
 nav ul li a:hover {
 	color: #fff;
@@ -321,6 +325,47 @@ article .article-info {
 article .article-info a { 
 	color: #666;
 }
+
+.expanded .item {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 200px;
+    position: relative;
+}
+
+.expanded .item-image {
+    float: left;
+    border: 3px solid lightgray;
+    width: 300px;
+    height: 200px;
+    overflow: hidden
+}
+
+.expanded img {
+    height: 200px;
+    max-width: 300px;
+}
+
+.expanded .item-title {
+    float: left;
+    margin-left: 10px;
+}
+
+.expanded .item-detail {
+    position: absolute;
+    bottom:0px;
+    right:0px;
+}
+
+.expanded .item-button {
+    float: right;
+    margin: 4px;
+}
+
+.expanded ul {
+    list-style: none;
+}
+
 
 .sidebar {
     float: left;
@@ -383,8 +428,6 @@ article .article-info a {
    color: #799AC0;
    font-weight: bold;
 }
-
-
 
 
 .clear {

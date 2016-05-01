@@ -70,9 +70,10 @@ public class SaxParserXMLdataStore {
         parseDocument(consoleXmlFileName, consoleHandler);
         parseDocument(gameXmlFileName, gameHandler);
 
+        // link accessory with console HashMap
         linkConsoleAndAccessory();
 
-        prettyPrint();
+        //prettyPrint();
     }
 
     public HashMap<String, Accessory> getAccessories() {

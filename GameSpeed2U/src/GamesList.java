@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -72,7 +71,5 @@ public class GamesList extends HttpServlet {
 
 		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");
-		
 	}
-
 }

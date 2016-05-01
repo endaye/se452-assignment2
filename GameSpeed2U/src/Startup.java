@@ -9,6 +9,7 @@ public class Startup extends HttpServlet
 {
 	public void init() throws ServletException
 	{
+		// read data from local xml file
 		String path = this.getServletContext().getRealPath("");
 		SaxParserXMLdataStore data = new SaxParserXMLdataStore(path);
 

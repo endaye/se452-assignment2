@@ -31,6 +31,7 @@ public class Helper {
 	public void printHtml(String file) {
 		String result = HtmlToString(file);
 		if (file == "site_header.html") {
+			result += "<span id='login'>";
 			if (session.getAttribute("username")!=null){
 				String username = session.getAttribute("username").toString();
 				username = Character.toUpperCase(username.charAt(0)) + username.substring(1);
@@ -43,7 +44,9 @@ public class Helper {
 				result = result + "<li><a href='Login'>Login</a></li>";
 			}
 			result = result
-					+ "<li class='end'><a href='Cart'>Cart("+CartCount()+")</a></li></ul></nav><div id='page'>";
+					+ "<li class='end'><a href='Cart'>Cart("+CartCount()+")</a></li>" +
+					"</span></ul></nav>" +
+					"<div id='page'>";
 			pw.print(result);
 		} else
 			pw.print(result);
