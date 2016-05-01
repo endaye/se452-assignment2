@@ -1,6 +1,5 @@
 
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,10 +10,10 @@ public class Startup extends HttpServlet
 	public void init() throws ServletException
 	{
 		String path = this.getServletContext().getRealPath("");
-		new SaxParser4GameSpeedXMLdataStore(path);
+		SaxParserXMLdataStore data = new SaxParserXMLdataStore(path);
 
-		new ConsoleHashMap();
-		new GameHashMap();
+		new ConsoleHashMap(data.getConsoles());
+		new GameHashMap(data.getGames());
 		new UserHashMap();
 		new TabletHashMap();
     }

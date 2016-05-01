@@ -38,7 +38,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 ////////////////////////////////////////////////////////////
 
-public class SaxParser4GameSpeedXMLdataStore {
+public class SaxParserXMLdataStore {
 
     private String accessoryXmlFileName = "/AccessoryCatalog.xml";
     private String consoleXmlFileName = "/ConsoleCatalog.xml";
@@ -50,7 +50,7 @@ public class SaxParser4GameSpeedXMLdataStore {
     private HashMap<String, Console> consoles;
     private HashMap<String, Game> games;
 
-    public SaxParser4GameSpeedXMLdataStore(String consoleXmlFilePath) {
+    public SaxParserXMLdataStore(String consoleXmlFilePath) {
         if (consoleXmlFilePath.isEmpty()) {
             consoleXmlFilePath = "";
         }
@@ -74,6 +74,19 @@ public class SaxParser4GameSpeedXMLdataStore {
 
         prettyPrint();
     }
+
+    public HashMap<String, Accessory> getAccessories() {
+        return this.accessories;
+    }
+
+    public HashMap<String, Console> getConsoles() {
+        return this.consoles;
+    }
+
+    public HashMap<String, Game> getGames() {
+        return this.games;
+    }
+
 
     private void parseDocument(String file, DefaultHandler handler) {
         SAXParserFactory factory = SAXParserFactory.newInstance();

@@ -47,10 +47,6 @@ public class GamesList extends HttpServlet {
 		helper.printHtml("site_header.html");
 		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 		pw.print("<a style='font-size: 24px;'>"+name+" Games</a>");
-        pw.print("</h2><p>" + hm.size()+ "</p>");
-        pw.print("</h2><p>" + GameHashMap.electronicArts.size()+ "</p>");
-        pw.print("</h2><p>" + GameHashMap.activision.size()+ "</p>");
-        pw.print("</h2><p>" + GameHashMap.takeTwoInteractive.size()+ "</p>");
         pw.print("</h2><div class='entry'><table id='bestseller'>");
         int i = 1; int size= hm.size();
 		for(Map.Entry<String, Game> entry : hm.entrySet()){
