@@ -42,33 +42,15 @@ public class ConsoleList extends HttpServlet {
 		
 		Helper helper = new Helper(request,pw);
 		helper.printHtml("site_header.html");
-		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
-		pw.print("<a style='font-size: 24px;'>"+name+" Consoles</a>");
-		pw.print("</h2><div class='entry'><table id='bestseller'>");
-		int i = 1;
-        int size= hm.size();
+        pw.print("<div id='body'><section id='content'><article class='expanded'>");
+        pw.print("<h2>" + name + " Consoles</h2>");
 		for(Map.Entry<String, Console> entry : hm.entrySet()){
 			Console console = entry.getValue();
-			if(i%3==1) pw.print("<tr>");
-			pw.print("<td><div id='shop_item'>");
-			pw.print("<h3>"+console.getName()+"</h3>");
-			pw.print("<strong>$"+console.getPrice()+"</strong><ul>");
-			pw.print("<li id='item'><img src='images/consoles/"+console.getImage()+"' alt='' /></li>");
-			pw.print("<li><form method='post' action='Cart'>" +
-					"<input type='hidden' name='name' value='"+entry.getKey()+"'>"+
-					"<input type='hidden' name='type' value='consoles'>"+
-					"<input type='hidden' name='maker' value='"+CategoryName+"'>"+
-					"<input type='hidden' name='access' value=''>"+
-					"<input type='submit' class='btnbuy' value='Buy Now' href='#'></input></form></li>");
-			pw.print("<li><a class='btnbuy' href='AccessoryList?maker="+CategoryName+"&console="+entry.getKey().toString()+"'>View Accessories</a></li>");
-			pw.print("<li><a class='btnreview' href='Review?name="+entry.getKey()+"&type=consoles&maker="+CategoryName+"&access='>Reviews</a></li>");
-			pw.print("</ul></div></td>");
-			if(i%3==0 || i == size) pw.print("</tr>");
-			i++;
+            pw.print(new GenerateItemHtmlHandler(entry.getKey(), console).getHtml());
 		}		
-		pw.print("</table></div></div></div>");
+        pw.print("</article></section>");
 
-		helper.printHtml("site_sidebar.html");
+        helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");
 		
 	}

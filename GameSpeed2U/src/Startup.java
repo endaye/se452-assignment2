@@ -15,7 +15,8 @@ public class Startup extends HttpServlet
 
 		new ConsoleHashMap(data.getConsoles());
 		new GameHashMap(data.getGames());
+		new TabletHashMap(data.getTablets());
+
 		new UserHashMap();
-		new TabletHashMap();
     }
 }

@@ -43,12 +43,13 @@ public class SaxParserXMLdataStore {
     private String accessoryXmlFileName = "/AccessoryCatalog.xml";
     private String consoleXmlFileName = "/ConsoleCatalog.xml";
     private String gameXmlFileName = "/GameCatalog.xml";
-    private String userXmlFileName = "/UserCatalog.xml";
     private String tabletXmlFileName = "/TabletCatalog.xml";
+    private String userXmlFileName = "/UserCatalog.xml";
 
     private HashMap<String, Accessory> accessories;
     private HashMap<String, Console> consoles;
     private HashMap<String, Game> games;
+    private HashMap<String, Tablet> tablets;
 
     public SaxParserXMLdataStore(String consoleXmlFilePath) {
         if (consoleXmlFilePath.isEmpty()) {
@@ -57,18 +58,23 @@ public class SaxParserXMLdataStore {
         accessoryXmlFileName = consoleXmlFilePath + accessoryXmlFileName;
         consoleXmlFileName = consoleXmlFilePath + consoleXmlFileName;
         gameXmlFileName = consoleXmlFilePath + gameXmlFileName;
+        tabletXmlFileName = consoleXmlFilePath + tabletXmlFileName;
+
 
         accessories = new HashMap<String, Accessory>();
         consoles = new HashMap<String, Console>();
         games = new HashMap<String, Game>();
+        tablets = new HashMap<String, Tablet>();
 
         SAXParserAccessoryHandler accessoryHandler = new SAXParserAccessoryHandler(accessories);
         SAXParserConsoleHandler consoleHandler = new SAXParserConsoleHandler(consoles);
         SAXParserGameHandler gameHandler = new SAXParserGameHandler(games);
+        SAXParserTabletHandler tabletHandler = new SAXParserTabletHandler(tablets);
 
         parseDocument(accessoryXmlFileName, accessoryHandler);
         parseDocument(consoleXmlFileName, consoleHandler);
         parseDocument(gameXmlFileName, gameHandler);
+        parseDocument(tabletXmlFileName, tabletHandler);
 
         // link accessory with console HashMap
         linkConsoleAndAccessory();
@@ -87,6 +93,8 @@ public class SaxParserXMLdataStore {
     public HashMap<String, Game> getGames() {
         return this.games;
     }
+
+    public HashMap<String, Tablet> getTablets() { return this.tablets; }
 
 
     private void parseDocument(String file, DefaultHandler handler) {

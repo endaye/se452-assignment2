@@ -36,30 +36,13 @@ public class AccessoryList extends HttpServlet {
 		
 		Helper helper = new Helper(request,pw);
 		helper.printHtml("site_header.html");
-		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
-		pw.print("<a style='font-size: 24px;'>"+ console.getName() +": Accessories</a>");
-		pw.print("</h2><div class='entry'><table id='bestseller'>");
-		int i = 1; int size= hm.size();
+		pw.print("<div id='body'><section id='content'><article class='expanded'>");
+		pw.print("<h2>" + console.getName() + " Accessories</h2>");
 		for(Map.Entry<String, Accessory> entry : console.getAccessories().entrySet()){
 			Accessory accessory = entry.getValue();
-			if(i%3==1) pw.print("<tr>");
-			pw.print("<td><div id='shop_item'>");
-			pw.print("<h3>"+accessory.getName()+"</h3>");
-			pw.print("<strong>"+accessory.getPrice()+"$</strong><ul>");
-			pw.print("<li id='item'><img src='images/accessories/"+accessory.getImage()+"' alt='' /></li>");
-			pw.print("<li><form method='post' action='Cart'>" +
-					"<input type='hidden' name='name' value='"+entry.getKey()+"'>"+
-					"<input type='hidden' name='type' value='accessories'>"+
-					"<input type='hidden' name='maker' value='"+CategoryName+"'>"+
-					"<input type='hidden' name='access' value='"+ConsoleName+"'>"+
-					"<input type='submit' class='btnbuy' value='Buy Now' href='#'></input></form></li>");
-			pw.print("<li><a class='btnreview' href='Review?name="+entry.getKey()+"&type=accessories&maker="+CategoryName+"&access="+ConsoleName+"'>Reviews</a></li>");
-			
-			pw.print("</ul></div></td>");
-			if(i%3==0 || i == size) pw.print("</tr>");
-			i++;
-		}		
-		pw.print("</table></div></div></div>");
+			pw.print(new GenerateItemHtmlHandler(accessory).getHtml());
+		}
+		pw.print("</article></section>");
 
 		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");

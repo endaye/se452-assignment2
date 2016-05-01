@@ -48,25 +48,11 @@ public class GamesList extends HttpServlet {
         pw.print("<h2>"+name+" Games</h2>");
         for(Map.Entry<String, Game> entry : hm.entrySet()){
             Game game = entry.getValue();
-            pw.print(showGameItemHtml(game.getName(), game.getPrice(), game.getImage()));
+            pw.print(new GenerateItemHtmlHandler(game).getHtml());
         }
         pw.print("</article></section>");
 
         helper.printHtml("site_sidebar.html");
         helper.printHtml("site_footer.html");
-    }
-
-    private String showGameItemHtml(String name, double price, String image) {
-        String out = "";
-        out += "<div class='item'><div class='item-image'>" +
-                "<img src='images/games/"+ image + "' " +
-                "alt='"+ name +"'/></div>" +
-                "<div class='item-title'>" +
-                "<h3>" + name + "</h3><strong>$" + price + "</strong></div>" +
-                "<div class='item-detail'><ul>" +
-                "<li><span class='item-button'><a class='button' href='#'>Buy Now</a></span></li>" +
-                "<li><span class='item-button'><a class='button' href='#'>Reviews</a></span></li>" +
-                "</ul></div></div>";
-        return out;
     }
 }

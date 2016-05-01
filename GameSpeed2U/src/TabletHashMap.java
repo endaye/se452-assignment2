@@ -1,5 +1,7 @@
 
 
+import javafx.scene.control.Tab;
+
 import java.util.HashMap;
 
 public class TabletHashMap {
@@ -11,15 +13,17 @@ public class TabletHashMap {
 	public static String string_microsoft = "Microsoft";
 	public static String string_samsung = "Samsung";
 	
-	public TabletHashMap() {
-		if(apple.isEmpty()){
-
-		}
-		if(microsoft.isEmpty()){
-	
-		}
-		if(samsung.isEmpty()){
-
+	public TabletHashMap(HashMap<String, Tablet> allTablet) {
+		for (String key: allTablet.keySet()) {
+			Tablet tablet = allTablet.get(key);
+			String retailer = tablet.getRetailer();
+			if (retailer.equalsIgnoreCase("Apple")) {
+				apple.put(key, tablet);
+			} else if (retailer.equalsIgnoreCase("Microsoft")) {
+				microsoft.put(key, tablet);
+			} else if (retailer.equalsIgnoreCase("Samsung")) {
+				samsung.put(key, tablet);
+			}
 		}
 	}
 }
