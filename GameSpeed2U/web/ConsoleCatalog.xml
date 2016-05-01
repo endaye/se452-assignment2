@@ -8,8 +8,6 @@
         <console_condition>New</console_condition>
         <console_discount>10.0</console_discount>
         <console_accessories>
-            <!--<accessory>XBOX controller</accessory>-->
-            <!--<accessory>Turtle Beach Headset</accessory>-->
             <accessory>xboxone_wc</accessory>
             <accessory>xboxone_sh</accessory>
         </console_accessories>
@@ -22,10 +20,16 @@
         <console_condition>New</console_condition>
         <console_discount>10.0</console_discount>
         <console_accessories>
-            <!--<accessory>XBOX controller</accessory>-->
-            <!--<accessory>Turtle Beach Headset</accessory>-->
             <accessory>xbox360_mr</accessory>
             <accessory>xbox360_wa</accessory>
         </console_accessories>
+    </console>
+    <console id="ps4">
+        <console_name>PS4</console_name>
+        <console_price>349.99</console_price>
+        <console_image>PS4-console-bundle.jpg</console_image>
+        <console_retailer>Sony</console_retailer>
+        <console_condition>New</console_condition>
+        <console_discount>10.0</console_discount>
     </console>
 </ConsoleCatalog>

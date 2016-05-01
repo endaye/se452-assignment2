@@ -5,12 +5,12 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.HashMap;
 
-public class SAXParserConsoleHandler extends DefaultHandler{
+public class SAXParserAccessoryHandler extends DefaultHandler{
 
     String elementValueRead;
 
-    Console console;
-    HashMap<String, Console> consoles;
+    Accessory accessory;
+    HashMap<String, Accessory> accessories;
 
     ////////////////////////////////////////////////////////////
 
@@ -25,7 +25,6 @@ public class SAXParserConsoleHandler extends DefaultHandler{
      Group 3. characters() :
      Method that is called with the text content in between the start and end tags of an XML document element.
 
-
      There are few other methods that you could use for notification for different purposes, check the API at the following URL:
 
      https://docs.oracle.com/javase/7/docs/api/org/xml/sax/helpers/DefaultHandler.html
@@ -34,48 +33,44 @@ public class SAXParserConsoleHandler extends DefaultHandler{
 
     ////////////////////////////////////////////////////////////
 
-    public SAXParserConsoleHandler(HashMap<String, Console> consoles) {
-        this.consoles = consoles;
+    public SAXParserAccessoryHandler(HashMap<String, Accessory> accessories) {
+        this.accessories = accessories;
     }
 
 
     @Override
     public void startElement(String str1, String str2, String elementName, Attributes attributes)
             throws SAXException {
-        if (elementName.equalsIgnoreCase("console")) {
-            console = new Console();
-            consoles.put(attributes.getValue("id"), console);
+        if (elementName.equalsIgnoreCase("accessory")) {
+            accessory = new Accessory();
+            accessories.put(attributes.getValue("id"), accessory);
         }
     }
 
     @Override
     public void endElement(String str1, String str2, String element) throws SAXException {
-        if (element.equalsIgnoreCase("console_name")) {
-            console.setName(elementValueRead);
+        if (element.equalsIgnoreCase("accessory_name")) {
+            accessory.setName(elementValueRead);
             return;
         }
-        if(element.equalsIgnoreCase("console_price")){
-            console.setPrice(Double.parseDouble(elementValueRead));
+        if(element.equalsIgnoreCase("accessory_price")){
+            accessory.setPrice(Double.parseDouble(elementValueRead));
             return;
         }
-        if (element.equalsIgnoreCase("console_image")) {
-            console.setImage(elementValueRead);
+        if (element.equalsIgnoreCase("accessory_image")) {
+            accessory.setImage(elementValueRead);
             return;
         }
-        if (element.equalsIgnoreCase("console_retailer")) {
-            console.setRetailer(elementValueRead);
+        if (element.equalsIgnoreCase("accessory_retailer")) {
+            accessory.setRetailer(elementValueRead);
             return;
         }
-        if (element.equalsIgnoreCase("console_condition")) {
-            console.setCondition(elementValueRead);
+        if (element.equalsIgnoreCase("accessory_condition")) {
+            accessory.setCondition(elementValueRead);
             return;
         }
-        if (element.equalsIgnoreCase("console_discount")) {
-            console.setDiscount(Double.parseDouble(elementValueRead));
-            return;
-        }
-        if(element.equalsIgnoreCase("accessory")){
-            console.getAccessories().put(elementValueRead, new Accessory());
+        if (element.equalsIgnoreCase("accessory_discount")) {
+            accessory.setDiscount(Double.parseDouble(elementValueRead));
             return;
         }
     }

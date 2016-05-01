@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<AccessoryCatalog>
+    <accessory id="xboxone_wc">
+        <accessory_name>Controller</accessory_name>
+        <accessory_price>40.00</accessory_price>
+        <accessory_image>XBOX controller.jpg</accessory_image>
+        <accessory_retailer>Microsoft</accessory_retailer>
+        <accessory_condition>New</accessory_condition>
+        <accessory_discount>10.0</accessory_discount>
+    </accessory>
+    <accessory id="xboxone_sh">
+        <accessory_name>Turtle Beach Headset</accessory_name>
+        <accessory_price>50.00</accessory_price>
+        <accessory_image>Turtle Beach Headset.jpg</accessory_image>
+        <accessory_retailer>Microsoft</accessory_retailer>
+        <accessory_condition>New</accessory_condition>
+        <accessory_discount>10.0</accessory_discount>
+    </accessory>
+    <accessory id="xbox360_mr">
+        <accessory_name>Speeding Wheel</accessory_name>
+        <accessory_price>40.00</accessory_price>
+        <accessory_image>XBOX360-SpeedWheel.jpg</accessory_image>
+        <accessory_retailer>Microsoft</accessory_retailer>
+        <accessory_condition>New</accessory_condition>
+        <accessory_discount>10.0</accessory_discount>
+    </accessory>
+    <accessory id="xbox360_wa">
+        <accessory_name>Wireless Adapter</accessory_name>
+        <accessory_price>40.00</accessory_price>
+        <accessory_image>xbox360_wa.png</accessory_image>
+        <accessory_retailer>Microsoft</accessory_retailer>
+        <accessory_condition>New</accessory_condition>
+        <accessory_discount>10.0</accessory_discount>
+    </accessory>
+</AccessoryCatalog>

@@ -1,8 +1,5 @@
 
-
-
 public class Accessory {
-	private String id;
 	private String name;
 	private double price;
 	private String image;
@@ -14,12 +11,11 @@ public class Accessory {
 		this.name=name;
 		this.price=price;
 		this.image=image;
+		this.retailer = retailer;
 		this.condition=condition;
 		this.discount = discount;
-		this.retailer = retailer;
 	}
-	
-	
+
 	public Accessory() {
 		
 	}
@@ -71,6 +67,16 @@ public class Accessory {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
-	
 
+	@Override
+	public String toString() {
+		String out = "";
+		out += getName() + ", ";
+		out += getPrice() + ", ";
+		out += getImage() + ", ";
+		out += getCondition() + ", ";
+		out += getDiscount() + ", ";
+		out += getRetailer();
+		return out;
+	}
 }

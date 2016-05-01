@@ -24,6 +24,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
 
 ////////////////////////////////////////////////////////////
@@ -39,39 +40,46 @@ import org.xml.sax.SAXException;
 
 public class SaxParser4GameSpeedXMLdataStore {
 
+    private String accessoryXmlFileName = "/AccessoryCatalog.xml";
     private String consoleXmlFileName = "/ConsoleCatalog.xml";
     private String gameXmlFileName = "/GameCatalog.xml";
-    private String accessoryXmlFileName = "/AccessoryCatalog.xml";
     private String userXmlFileName = "/UserCatalog.xml";
     private String tabletXmlFileName = "/TabletCatalog.xml";
 
-    String elementValueRead;
-
-    HashMap<String, Console> consoles;
-    HashMap<String, Game> games;
-
+    private HashMap<String, Accessory> accessories;
+    private HashMap<String, Console> consoles;
+    private HashMap<String, Game> games;
 
     public SaxParser4GameSpeedXMLdataStore(String consoleXmlFilePath) {
         if (consoleXmlFilePath.isEmpty()) {
             consoleXmlFilePath = "";
         }
+        accessoryXmlFileName = consoleXmlFilePath + accessoryXmlFileName;
         consoleXmlFileName = consoleXmlFilePath + consoleXmlFileName;
         gameXmlFileName = consoleXmlFilePath + gameXmlFileName;
+
+        accessories = new HashMap<String, Accessory>();
         consoles = new HashMap<String, Console>();
         games = new HashMap<String, Game>();
-        parseDocument();
+
+        SAXParserAccessoryHandler accessoryHandler = new SAXParserAccessoryHandler(accessories);
+        SAXParserConsoleHandler consoleHandler = new SAXParserConsoleHandler(consoles);
+        SAXParserGameHandler gameHandler = new SAXParserGameHandler(games);
+
+        parseDocument(accessoryXmlFileName, accessoryHandler);
+        parseDocument(consoleXmlFileName, consoleHandler);
+        parseDocument(gameXmlFileName, gameHandler);
+
+        linkConsoleAndAccessory();
+
         prettyPrint();
     }
 
-    private void parseDocument() {
+    private void parseDocument(String file, DefaultHandler handler) {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try {
             SAXParser parser = factory.newSAXParser();
-            SAXParserConsoleHandler consoleHandler = new SAXParserConsoleHandler(consoles);
-            SAXParserGameHandler gameHandler = new SAXParserGameHandler(games);
-            System.out.println(consoleXmlFileName);
-            parser.parse(consoleXmlFileName, consoleHandler);
-            parser.parse(gameXmlFileName, gameHandler);
+            parser.parse(file, handler);
         } catch (ParserConfigurationException e) {
             System.out.println("ParserConfig error");
         } catch (SAXException e) {
@@ -81,11 +89,29 @@ public class SaxParser4GameSpeedXMLdataStore {
         }
     }
 
+    private void linkConsoleAndAccessory() {
+        for (String key1: consoles.keySet()) {
+            Console console = consoles.get(key1);
+            for (String key2: console.getAccessories().keySet()) {
+                if (accessories.containsKey(key2)) {
+                    console.getAccessories().put(key2, accessories.get(key2));
+                }
+            }
+        }
+    }
+
     private void prettyPrint() {
+        System.out.println("\n####### Accessory #######\n");
+        for (String key: accessories.keySet()) {
+            String value = accessories.get(key).toString();
+            System.out.println(key + ": " + value);
+        }
+        System.out.println("\n####### Console #######\n");
         for (String key: consoles.keySet()) {
             String value = consoles.get(key).toString();
             System.out.println(key + ": " + value);
         }
+        System.out.println("\n####### Game #######\n");
         for (String key: games.keySet()) {
             String value = games.get(key).toString();
             System.out.println(key + ": " + value);

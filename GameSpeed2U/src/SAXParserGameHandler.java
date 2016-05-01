@@ -71,7 +71,6 @@ public class SAXParserGameHandler extends DefaultHandler {
         }
     }
 
-
     @Override
     public void characters(char[] content, int begin, int end) throws SAXException {
         elementValueRead = new String(content, begin, end);

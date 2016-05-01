@@ -38,12 +38,8 @@ public class ConsoleHashMap extends HttpServlet {
 			microsoft.put("xbox360", xbox360);
 		}
 
-		if(sony.isEmpty()){			
-
-			
-		
+		if(sony.isEmpty()){
 			accessories = new HashMap<String, Accessory>();
-
 			Console ps4 = new Console("PS4",349.00,"PS4-console-bundle.jpg","Sony","New",10,accessories);
 			sony.put("ps4", ps4);			
 		}

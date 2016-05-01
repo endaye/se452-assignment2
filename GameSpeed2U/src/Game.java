@@ -12,9 +12,9 @@ public class Game {
 		this.name=name;
 		this.price=price;
 		this.image=image;
+		this.retailer = retailer;
 		this.condition=condition;
 		this.discount = discount;
-		this.retailer = retailer;
 	}
 	
 	public Game(){
@@ -69,7 +69,7 @@ public class Game {
 		out += getImage() + ", ";
 		out += getCondition() + ", ";
 		out += getDiscount() + ", ";
-		out += getRetailer() + ", ";
+		out += getRetailer();
 		return out;
 	}
 }
