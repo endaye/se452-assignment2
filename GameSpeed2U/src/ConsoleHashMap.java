@@ -1,8 +1,15 @@
 
 
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServlet;
+import java.io.*;
 import java.util.HashMap;
+import java.util.StringJoiner;
+import java.util.concurrent.Semaphore;
 
-public class ConsoleHashMap{
+public class ConsoleHashMap extends HttpServlet {
 	public static HashMap<String, Console> microsoft = new HashMap<String, Console>();
 	public static HashMap<String, Console> sony = new HashMap<String, Console>();
 	public static HashMap<String, Console> nintendo = new HashMap<String, Console>();

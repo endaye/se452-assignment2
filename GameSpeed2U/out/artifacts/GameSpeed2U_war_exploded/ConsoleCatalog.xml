@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ConsoleCatalog>
+    <console id="xboxone">
+        <console_name>Xbox One</console_name>
+        <console_price>399.99</console_price>
+        <console_image>xbox1.jpg</console_image>
+        <console_retailer>Microsoft</console_retailer>
+        <console_condition>New</console_condition>
+        <console_discount>10.0</console_discount>
+        <console_accessories>
+            <!--<accessory>XBOX controller</accessory>-->
+            <!--<accessory>Turtle Beach Headset</accessory>-->
+            <accessory>xboxone_wc</accessory>
+            <accessory>xboxone_sh</accessory>
+        </console_accessories>
+    </console>
+    <console id="xbox360">
+        <console_name>Xbox 360</console_name>
+        <console_price>299.99</console_price>
+        <console_image>xbox360.jpg</console_image>
+        <console_retailer>Microsoft</console_retailer>
+        <console_condition>New</console_condition>
+        <console_discount>10.0</console_discount>
+        <console_accessories>
+            <!--<accessory>XBOX controller</accessory>-->
+            <!--<accessory>Turtle Beach Headset</accessory>-->
+            <accessory>xbox360_mr</accessory>
+            <accessory>xbox360_wa</accessory>
+        </console_accessories>
+    </console>
+</ConsoleCatalog>

@@ -36,7 +36,6 @@ public class AccessoryList extends HttpServlet {
 		
 		Helper helper = new Helper(request,pw);
 		helper.printHtml("site_header.html");
-		helper.printHtml("site_sidebar.html");
 		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 		pw.print("<a style='font-size: 24px;'>"+ console.getName() +": Accessories</a>");
 		pw.print("</h2><div class='entry'><table id='bestseller'>");
@@ -60,7 +59,9 @@ public class AccessoryList extends HttpServlet {
 			if(i%3==0 || i == size) pw.print("</tr>");
 			i++;
 		}		
-		pw.print("</table></div></div></div>");		
+		pw.print("</table></div></div></div>");
+
+		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");
 	}
 }

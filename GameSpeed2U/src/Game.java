@@ -20,7 +20,6 @@ public class Game {
 	public Game(){
 		
 	}
-	
 	public String getName() {
 		return name;
 	}
@@ -61,5 +60,16 @@ public class Game {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
-	
+
+	@Override
+	public String toString() {
+		String out = "";
+		out += getName() + ", ";
+		out += getPrice() + ", ";
+		out += getImage() + ", ";
+		out += getCondition() + ", ";
+		out += getDiscount() + ", ";
+		out += getRetailer() + ", ";
+		return out;
+	}
 }

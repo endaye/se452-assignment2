@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GameCatalog>
+    <game id="ea_fifa">
+        <game_name>FIFA 2016</game_name>
+        <game_price>59.99</game_price>
+        <game_image>ea_fifa.jpg</game_image>
+        <game_retailer>Electronic Arts</game_retailer>
+        <game_condition>New</game_condition>
+        <game_discount>10.0</game_discount>
+    </game>
+    <game id="ea_nfs">
+        <game_name>Need for Speed</game_name>
+        <game_price>59.99</game_price>
+        <game_image>ea_nfs.jpg</game_image>
+        <game_retailer>Electronic Arts</game_retailer>
+        <game_condition>New</game_condition>
+        <game_discount>10.0</game_discount>
+    </game>
+    <game id="activision_cod">
+        <game_name>Call Of Duty</game_name>
+        <game_price>54.99</game_price>
+        <game_image>activision_cod.jpg</game_image>
+        <game_retailer>Activision</game_retailer>
+        <game_condition>New</game_condition>
+        <game_discount>10.0</game_discount>
+    </game>
+    <game id="tti_evolve">
+        <game_name>Evolve</game_name>
+        <game_price>49.99</game_price>
+        <game_image>tti_evolve.jpg</game_image>
+        <game_retailer>Take-Two Interactive</game_retailer>
+        <game_condition>New</game_condition>
+        <game_discount>10.0</game_discount>
+    </game>
+</GameCatalog>
