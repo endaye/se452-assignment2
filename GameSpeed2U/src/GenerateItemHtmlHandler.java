@@ -38,8 +38,11 @@ public class GenerateItemHtmlHandler {
                 "<h3>" + name + "</h3><strong>$" + price + "</strong></div>" +
                 "<div class='item-detail'><ul>" +
                 "<li><span class='item-button'><a class='button' " +
-                "href='Cart?id="+ id +"&type=games&maker="+ maker.toLowerCase() +"'>Buy Now</a></span></li>" +
-                "<li><span class='item-button'><a class='button' href='#'>Reviews</a></span></li>" +
+                "href='Cart?id="+ id +"&type=games&maker="+ maker.toLowerCase() +"'>" +
+                "Buy Now</a></span></li>" +
+                "<li><span class='item-button'><a class='button' " +
+                "href='Review?id="+ id +"&type=games&maker="+ maker.toLowerCase() +"'>" +
+                "Reviews</a></span></li>" +
                 "</ul></div></div>";
     }
 
@@ -52,9 +55,11 @@ public class GenerateItemHtmlHandler {
                 "<h3>" + name + "</h3><strong>$" + price + "</strong></div>" +
                 "<div class='item-detail'><ul>" +
                 "<li><span class='item-button'><a class='button' " +
-                "href='Cart?id="+ id +"&type=accessories&maker="+ maker.toLowerCase() +"&access="+ consoleId +"'>Buy Now</a></span></li>" +
-                "<li><span class='item-button'><a class='button' href='#'>Reviews</a></span></li>" +
-                "</ul></div></div>";
+                "href='Cart?id="+ id +"&type=accessories&maker="+ maker.toLowerCase() +"&access="+ consoleId +"'>" +
+                "Buy Now</a></span></li>" +
+                "<li><span class='item-button'><a class='button' " +
+                "href='Review?id="+ id +"&type=accessories&maker="+ maker.toLowerCase() +"&access="+ consoleId +"'>" +
+                "Reviews</a></span></li></ul></div></div>";
     }
 
     // Console
@@ -70,8 +75,9 @@ public class GenerateItemHtmlHandler {
         out += "<li><span class='item-button'><a class='button' " +
                 "href='AccessoryList?maker=" + maker.toLowerCase() + "&console=" + id.toLowerCase() + "'>" +
                 "View Accessories</a></span></li>";
-        out += "<li><span class='item-button'><a class='button' href='#'>Reviews</a></span></li>" +
-                "</ul></div></div>";
+        out += "<li><span class='item-button'><a class='button' " +
+                "href='Review?id="+ id +"&type=consoles&maker="+ maker.toLowerCase() +"'>" +
+                "Reviews</a></span></li></ul></div></div>";
     }
 
     // Game
@@ -82,8 +88,12 @@ public class GenerateItemHtmlHandler {
                 "<div class='item-title'>" +
                 "<h3>" + name + "</h3><strong>$" + price + "</strong></div>" +
                 "<div class='item-detail'><ul>" +
-                "<li><span class='item-button'><a class='button' href='Cart?id="+ id +"&type=tablets&maker="+ maker.toLowerCase() +"'>Buy Now</a></span></li>" +
-                "<li><span class='item-button'><a class='button' href='#'>Reviews</a></span></li>" +
+                "<li><span class='item-button'><a class='button' " +
+                "href='Cart?id="+ id +"&type=tablets&maker="+ maker.toLowerCase() +"'>" +
+                "Buy Now</a></span></li>" +
+                "<li><span class='item-button'><a class='button' " +
+                "href='Review?id="+ id +"&type=tablets&maker="+ maker.toLowerCase() +"'>" +
+                "Reviews</a></span></li>" +
                 "</ul></div></div>";
     }
 }

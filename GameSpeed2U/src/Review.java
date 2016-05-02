@@ -38,14 +38,11 @@ public class Review extends HttpServlet {
                 response.sendRedirect("Login");
                 return;
             }
-            System.out.println("aaa");
             String id = request.getParameter("id");
             String type = request.getParameter("type");
             String maker = request.getParameter("maker");
             String access = request.getParameter("access");
             String text = request.getParameter("text");
-
-            System.out.println("bbb");
 
             if (text != null && !text.isEmpty()) {
                 pw.print("<h4>Thank you.</h4>");

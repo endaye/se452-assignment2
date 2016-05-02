@@ -81,7 +81,7 @@ public class Registration extends HttpServlet {
 		Helper helper = new Helper(request, pw);
 		helper.printHtml("site_header.html");
 		pw.print("<div class='post' style='float: none; width: 100%'>");
-		pw.print("<h2 class='title meta'><a style='font-size: 24px;'>Login</a></h2>"
+		pw.print("<h2 class='title meta'><a style='font-size: 24px;'>Registration</a></h2>"
 				+ "<div class='entry'>"
 				+ "<div style='width:400px; margin:25px; margin-left: auto;margin-right: auto;'>");
 		if (error)
