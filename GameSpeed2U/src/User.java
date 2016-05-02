@@ -1,15 +1,16 @@
 
-
 public class User {
 	private int id;
 	private String name;
 	private String password;
 	private String usertype;
-	
+	private UserPersonalInfo info;
+
 	public User(String name, String password, String usertype) {
-		this.name=name;
-		this.password=password;
-		this.usertype=usertype;
+		setName(name);
+		setPassword(password);
+		setUsertype(usertype);
+		setInfo(new UserPersonalInfo());
 	}
 
 	public int getId() {
@@ -42,5 +43,13 @@ public class User {
 
 	public void setUsertype(String usertype) {
 		this.usertype = usertype;
+	}
+
+	public UserPersonalInfo getInfo() {
+		return info;
+	}
+
+	public void setInfo(UserPersonalInfo info) {
+		this.info = info;
 	}
 }
