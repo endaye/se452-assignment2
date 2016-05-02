@@ -274,6 +274,20 @@ public class Helper {
         return null;
     }
 
+    public ArrayList<OrderHistory> getOrderHistory() {
+        ArrayList<OrderHistory> ohs = new ArrayList<OrderHistory>();
+        for (OrderHistory oh : OrderHistoriesList.orderHistories) {
+            if (oh.getUser().equals(username())) {
+                ohs.add(oh);
+            }
+        }
+        return ohs;
+    }
+
+    public ArrayList<OrderHistory> getOrderHistoryAll() {
+        return OrderHistoriesList.orderHistories;
+    }
+
 	public HashMap<String, Console> getConsoles(){
 			HashMap<String, Console> hm = new HashMap<String, Console>();
 			hm.putAll(ConsoleHashMap.microsoft);

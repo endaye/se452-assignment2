@@ -40,6 +40,8 @@ public class Account extends HttpServlet {
                         "<td>" + user.getPassword()+ "</td></tr>" +
                         "<tr><td><h3>User Type</h3></td>" +
                         "<td>" + user.getUsertype()+ "</td></tr></table>");
+                pw.print("<div><a class='button' href='OrderHistory'>Order History</a></div>");
+                pw.print("<div><a class='button' href='PersonalInfo'>Profile</a></div>");
             }
             else {
                 pw.print(errorMsg);
@@ -54,5 +56,4 @@ public class Account extends HttpServlet {
             helper.printHtml("site_footer.html");
         }
     }
-
 }
