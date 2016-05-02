@@ -1,5 +1,7 @@
 
 
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -137,7 +139,6 @@ public class Helper {
 			order= OrdersHashMap.orders.get(username());
 		return order;
 	}
-	
 
 	public int CartCount(){
 		if(isLoggedin())
@@ -231,15 +232,48 @@ public class Helper {
 			OrderItem orderitem = new OrderItem(accessory.getName(), accessory.getPrice(), accessory.getImage(), accessory.getRetailer());
 			orderItems.add(orderitem);
 		}
-		
 	}
 	
-	public String currentDate(){
+	public String currentDate() {
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/YYYY");
 		Date date = new Date();
 		return dateFormat.format(date).toString(); 
 	}
-	
+
+    public String currentTime() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-G-HH-mm-ss-z");
+        Date date = new Date();
+        return dateFormat.format(date).toString();
+    }
+
+    public String orderConfirm() {
+        OrderHistory orderHistory = new OrderHistory();
+        String id = currentTime().toUpperCase() + "-" +username().toUpperCase();
+        ArrayList<OrderItem> items = new ArrayList<>();
+        double totalPrice = 0.0;
+        for (OrderItem oi : getCustomerOrders()) {
+            items.add(new OrderItem(oi));
+            totalPrice += oi.getPrice();
+        }
+        orderHistory.setId(id);
+        orderHistory.setDate(currentDate());
+        orderHistory.setUser(username());
+        orderHistory.setStatus("Confirmed");
+        orderHistory.setTotalPrice(totalPrice);
+        orderHistory.setItems(items);
+        OrderHistoriesList.orderHistories.add(orderHistory);
+        OrdersHashMap.orders.remove(username());
+        return id;
+    }
+
+    public OrderHistory getOrderHistory(String id){
+        for (OrderHistory oh : OrderHistoriesList.orderHistories) {
+            if (oh.getId().equals(id));
+            return oh;
+        }
+        return null;
+    }
+
 	public HashMap<String, Console> getConsoles(){
 			HashMap<String, Console> hm = new HashMap<String, Console>();
 			hm.putAll(ConsoleHashMap.microsoft);
@@ -288,7 +322,4 @@ public class Helper {
 		}
 		return ar;
 	}
-	
-	
-
 }

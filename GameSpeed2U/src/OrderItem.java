@@ -7,11 +7,18 @@ public class OrderItem {
 	private String retailer;
 
 	public OrderItem(String name, double price, String image, String retailer){
-		this.name=name;
-		this.price=price;
-		this.image=image;
-		this.retailer = retailer;
+		setName(name);
+        setPrice(price);
+        setImage(image);
+        setRetailer(retailer);
 	}
+
+    public OrderItem(OrderItem oi) {
+        setName(oi.getName());
+        setPrice(oi.getPrice());
+        setImage(oi.getImage());
+        setRetailer(oi.getRetailer());
+    }
 
 	public String getName() {
 		return name;
