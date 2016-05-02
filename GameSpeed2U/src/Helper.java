@@ -28,6 +28,7 @@ public class Helper {
 		this.session = req.getSession(true);
 	}
 
+
 	public void printHtml(String file) {
 		String result = HtmlToString(file);
 		if (file == "site_header.html") {
@@ -48,8 +49,9 @@ public class Helper {
 					"</span></ul></nav>" +
 					"<div id='page'>";
 			pw.print(result);
-		} else
-			pw.print(result);
+		} else {
+            pw.print(result);
+        }
 	}
 	
 
@@ -137,16 +139,13 @@ public class Helper {
 	}
 	
 
-	
 	public int CartCount(){
 		if(isLoggedin())
 		return getCustomerOrders().size();
 		return 0;
 	}
 	
-	
 
-		
 	public void storeProduct(String name,String type,String maker, String acc){
 		if(!OrdersHashMap.orders.containsKey(username())){	
 			ArrayList<OrderItem> arr = new ArrayList<OrderItem>();

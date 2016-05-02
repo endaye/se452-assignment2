@@ -1,6 +1,4 @@
-/**
- * Created by yzhang on 5/1/16.
- */
+
 public class CatalogItem {
     private String name;
     private double price;

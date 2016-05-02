@@ -15,7 +15,8 @@ import javax.servlet.http.HttpSession;
 public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+                          HttpServletResponse response)
+            throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 
@@ -87,5 +88,4 @@ public class Login extends HttpServlet {
 				+ "</form>" + "</div></div></div>");
 		helper.printHtml("site_footer.html");
 	}
-
 }

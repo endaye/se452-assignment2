@@ -20,7 +20,5 @@ public class Home extends HttpServlet {
 		helper.printHtml("site_home.html");
 		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");
-				
 	}
-
 }
