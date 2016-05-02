@@ -24,12 +24,28 @@
         <accessory_condition>New</accessory_condition>
         <accessory_discount>10.0</accessory_discount>
     </accessory>
-    <accessory id="xbox360_wa">
-        <accessory_name>Wireless Adapter</accessory_name>
-        <accessory_price>40.00</accessory_price>
-        <accessory_image>xbox360_wa.png</accessory_image>
-        <accessory_retailer>Microsoft</accessory_retailer>
+    <accessory id="wii_rp">
+        <accessory_name>Nintendo Wii Remote Plus</accessory_name>
+        <accessory_price>39.99</accessory_price>
+        <accessory_image>wii_rp.jpg</accessory_image>
+        <accessory_retailer>Nintendo</accessory_retailer>
         <accessory_condition>New</accessory_condition>
-        <accessory_discount>10.0</accessory_discount>
+        <accessory_discount>0.0</accessory_discount>
+    </accessory>
+    <accessory id="wiiu_pc">
+        <accessory_name>Nintendo Pro Controller</accessory_name>
+        <accessory_price>49.99</accessory_price>
+        <accessory_image>wiiu_pc.jpg</accessory_image>
+        <accessory_retailer>Nintendo</accessory_retailer>
+        <accessory_condition>New</accessory_condition>
+        <accessory_discount>0.0</accessory_discount>
+    </accessory>
+    <accessory id="ps4_wc">
+        <accessory_name>DualShock 4 Wireless Controller</accessory_name>
+        <accessory_price>59.99</accessory_price>
+        <accessory_image>ps4_wc.jpg</accessory_image>
+        <accessory_retailer>Sony</accessory_retailer>
+        <accessory_condition>New</accessory_condition>
+        <accessory_discount>0.0</accessory_discount>
     </accessory>
 </AccessoryCatalog>

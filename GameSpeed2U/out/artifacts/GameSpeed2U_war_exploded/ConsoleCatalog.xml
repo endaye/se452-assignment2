@@ -31,5 +31,31 @@
         <console_retailer>Sony</console_retailer>
         <console_condition>New</console_condition>
         <console_discount>10.0</console_discount>
+        <console_accessories>
+            <accessory>ps4_wc</accessory>
+        </console_accessories>
+    </console>
+    <console id="wii">
+        <console_name>Wii</console_name>
+        <console_price>189.99</console_price>
+        <console_image>wii.jpg</console_image>
+        <console_retailer>Nintendo</console_retailer>
+        <console_condition>Used</console_condition>
+        <console_discount>40.0</console_discount>
+        <console_accessories>
+            <accessory>wii_rp</accessory>
+        </console_accessories>
+    </console>
+    <console id="wiiu">
+        <console_name>Wii U</console_name>
+        <console_price>299.99</console_price>
+        <console_image>wiiu.jpg</console_image>
+        <console_retailer>Nintendo</console_retailer>
+        <console_condition>New</console_condition>
+        <console_discount>15.0</console_discount>
+        <console_accessories>
+            <accessory>wii_rp</accessory>
+            <accessory>wiiu_pc</accessory>
+        </console_accessories>
     </console>
 </ConsoleCatalog>
