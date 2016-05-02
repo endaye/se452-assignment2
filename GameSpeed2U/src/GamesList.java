@@ -48,7 +48,7 @@ public class GamesList extends HttpServlet {
         pw.print("<h2>"+name+" Games</h2>");
         for(Map.Entry<String, Game> entry : hm.entrySet()){
             Game game = entry.getValue();
-            pw.print(new GenerateItemHtmlHandler(game).getHtml());
+            pw.print(new GenerateItemHtmlHandler(entry.getKey(), game).getHtml());
         }
         pw.print("</article></section>");
 

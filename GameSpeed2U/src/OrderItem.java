@@ -5,7 +5,7 @@ public class OrderItem {
 	private double price;
 	private String image;
 	private String retailer;
-	
+
 	public OrderItem(String name, double price, String image, String retailer){
 		this.name=name;
 		this.price=price;
@@ -44,4 +44,6 @@ public class OrderItem {
 	public void setRetailer(String retailer) {
 		this.retailer = retailer;
 	}
+
+
 }

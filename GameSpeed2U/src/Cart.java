@@ -13,20 +13,19 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "Cart", urlPatterns = "/Cart")
 public class Cart extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.setContentType("text/html");
-		PrintWriter pw = response.getWriter();
-		Helper helper = new Helper(request, pw);
-		String name = request.getParameter("name");
-		String type = request.getParameter("type");
-		String maker = request.getParameter("maker");
-		String access = request.getParameter("access");
-				
-		helper.storeProduct(name, type, maker, access);
-		
-		displayCart(request, response);
-	}
-	
+        response.setContentType("text/html");
+        PrintWriter pw = response.getWriter();
+        Helper helper = new Helper(request, pw);
+        String id = request.getParameter("id");
+        String type = request.getParameter("type");
+        String maker = request.getParameter("maker");
+        String access = request.getParameter("access");
+
+        helper.storeProduct(id, type, maker, access);
+
+        displayCart(request, response);
+    }
+
 	protected void displayCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
@@ -39,7 +38,6 @@ public class Cart extends HttpServlet {
 		}
 		
 		helper.printHtml("site_header.html");
-		helper.printHtml("site_sidebar.html");
 		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
 		pw.print("<a style='font-size: 24px;'>Cart("+helper.CartCount()+")</a>");
 		pw.print("</h2><div class='entry'>");
@@ -57,19 +55,17 @@ public class Cart extends HttpServlet {
 		pw.print("<tr><th></th><th>Total</th><th>"+total+"</th>");
 		pw.print("<tr><td></td><td></td><td><a href='CheckOut' class='btnbuy'>Check Out</a></td>");
 		pw.print("</table>");
-		}else{
+		} else {
 			pw.print("<h4 style='color:red'>Your Cart is empty</h4>");
 		}
-		
-		pw.print("</div></div></div>");		
+
+        //pw.print("</article></section>");
+		pw.print("</div></div></div>");
+		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");
 	}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.setContentType("text/html");
-		PrintWriter pw = response.getWriter();
-		Helper helper = new Helper(request, pw);
-		
-		displayCart(request, response);
+        doPost(request, response);
 	}
 }

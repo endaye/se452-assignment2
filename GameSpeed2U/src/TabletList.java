@@ -46,7 +46,7 @@ public class TabletList extends HttpServlet {
         pw.print("<h2>"+name+" Tablets</h2>");
 		for (Map.Entry<String, Tablet> entry : hm.entrySet()) {
 			Tablet Tablet = entry.getValue();
-            pw.print(new GenerateItemHtmlHandler(Tablet).getHtml());
+            pw.print(new GenerateItemHtmlHandler(entry.getKey(), Tablet).getHtml());
         }
 		pw.print("</article></section>");
 

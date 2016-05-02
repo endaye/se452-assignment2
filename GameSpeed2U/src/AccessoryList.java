@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AccessoryList", urlPatterns = "/AccessoryList")
 public class AccessoryList extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
@@ -40,7 +41,7 @@ public class AccessoryList extends HttpServlet {
 		pw.print("<h2>" + console.getName() + " Accessories</h2>");
 		for(Map.Entry<String, Accessory> entry : console.getAccessories().entrySet()){
 			Accessory accessory = entry.getValue();
-			pw.print(new GenerateItemHtmlHandler(accessory).getHtml());
+			pw.print(new GenerateItemHtmlHandler(entry.getKey(), accessory, ConsoleName).getHtml());
 		}
 		pw.print("</article></section>");
 
