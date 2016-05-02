@@ -19,6 +19,7 @@
  it overheats after 2 hours of use
  */
 public class ReviewForm {
+    private String productId;
     private String productName;
     private String productType;
     private double productPrice;
@@ -36,6 +37,14 @@ public class ReviewForm {
     private int reviewRating;
     private String reviewDate;
     private String reviewText;
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
 
     public String getProductName() {
         return productName;
