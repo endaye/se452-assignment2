@@ -38,29 +38,28 @@ public class Cart extends HttpServlet {
 		}
 		
 		helper.printHtml("site_header.html");
-		pw.print("<div id='content'><div class='post'><h2 class='title meta'>");
-		pw.print("<a style='font-size: 24px;'>Cart("+helper.CartCount()+")</a>");
-		pw.print("</h2><div class='entry'>");
-		if(helper.CartCount()>0){
-		pw.print("<table  class='gridtable'>");
+        pw.print("<div id='body'><section id='content'><article class='expanded'>");
+        pw.print("<h2>Cart("+helper.CartCount()+")</h2>");
+
+        if (helper.CartCount() > 0) {
+		pw.print("<table>");
 		int i = 1;
 		double total = 0;
 		for (OrderItem oi : helper.getCustomerOrders()) {
 			pw.print("<tr>");
-			pw.print("<td>"+i+".</td><td>"+oi.getName()+"</td><td>: "+oi.getPrice()+"</td>");
+			pw.print("<td>"+i+".</td><td>"+oi.getName()+"</td><td>$"+oi.getPrice()+"</td>");
 			pw.print("</tr>");
 			total = total +oi.getPrice();
 			i++;
 		}
-		pw.print("<tr><th></th><th>Total</th><th>"+total+"</th>");
-		pw.print("<tr><td></td><td></td><td><a href='CheckOut' class='btnbuy'>Check Out</a></td>");
+		pw.print("<tr><th></th><th>Total</th><th>$"+total+"</th>");
+		pw.print("<tr><td></td><td></td><td><a class='button' href='CheckOut'>Check Out</a></td>");
 		pw.print("</table>");
 		} else {
 			pw.print("<h4 style='color:red'>Your Cart is empty</h4>");
 		}
 
-        //pw.print("</article></section>");
-		pw.print("</div></div></div>");
+        pw.print("</article></section>");
 		helper.printHtml("site_sidebar.html");
 		helper.printHtml("site_footer.html");
 	}
