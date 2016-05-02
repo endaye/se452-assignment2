@@ -52,9 +52,8 @@ public class Cart extends HttpServlet {
 			total = total +oi.getPrice();
 			i++;
 		}
-		pw.print("<tr><th></th><th>Total</th><th>$"+total+"</th>");
-		pw.print("<tr><td></td><td></td><td><a class='button' href='CheckOut'>Check Out</a></td>");
-		pw.print("</table>");
+		pw.print("<tr><th></th><th>Total</th><th>$"+total+"</th></table>");
+		pw.print("<a style='float:right' class='button' href='CheckOut'>Check Out</a>");
 		} else {
 			pw.print("<h4 style='color:red'>Your Cart is empty</h4>");
 		}

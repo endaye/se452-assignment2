@@ -147,14 +147,12 @@ public class Helper {
 	
     // store product into ArrayList<OrderItem>
 	public void storeProduct(String id, String type, String maker, String acc){
-		if(!OrdersHashMap.orders.containsKey(username())){	
+		if(!OrdersHashMap.orders.containsKey(username())) {
 			ArrayList<OrderItem> arr = new ArrayList<OrderItem>();
 			OrdersHashMap.orders.put(username(), arr);
 		}
 		
 		ArrayList<OrderItem> orderItems = OrdersHashMap.orders.get(username());
-
-        System.out.println(id + ", " + type + ", " + maker + ", " + acc);
 
 		if(type.equals("consoles")){
 			Console console = null;
