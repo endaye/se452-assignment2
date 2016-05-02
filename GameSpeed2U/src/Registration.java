@@ -32,9 +32,7 @@ public class Registration extends HttpServlet {
 		String usertype = "customer";
 		if(!helper.isLoggedin())
 			usertype = request.getParameter("usertype");
-		
-		
-		
+
 		if(!password.equals(repassword)){
 			error_msg = "Passwords doesn't match!";
 		}else{
