@@ -1,18 +1,18 @@
-package item;
+package item.dataload;
 
-import item.Tablet;
+import item.game.Game;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.HashMap;
 
-public class SAXParserTabletHandler extends DefaultHandler {
+public class SAXParserGameHandler extends DefaultHandler {
 
     String elementValueRead;
 
-    Tablet tablet;
-    HashMap<String, Tablet> tablets;
+    Game game;
+    HashMap<String, Game> games;
 
     ////////////////////////////////////////////////////////////
 
@@ -32,43 +32,43 @@ public class SAXParserTabletHandler extends DefaultHandler {
      ***************/
 
     ////////////////////////////////////////////////////////////
-    public SAXParserTabletHandler(HashMap<String, Tablet> tablets) {
-        this.tablets = tablets;
+    public SAXParserGameHandler(HashMap<String, Game> games) {
+        this.games = games;
     }
 
     @Override
     public void startElement(String str1, String str2, String elementName, Attributes attributes)
             throws SAXException {
-        if (elementName.equalsIgnoreCase("tablet")) {
-            tablet = new Tablet();
-            tablets.put(attributes.getValue("id"), tablet);
+        if (elementName.equalsIgnoreCase("game")) {
+            game = new Game();
+            games.put(attributes.getValue("id"), game);
         }
     }
 
     @Override
     public void endElement(String str1, String str2, String element) throws SAXException {
-        if (element.equalsIgnoreCase("tablet_name")) {
-            tablet.setName(elementValueRead);
+        if (element.equalsIgnoreCase("game_name")) {
+            game.setName(elementValueRead);
             return;
         }
-        if (element.equalsIgnoreCase("tablet_price")) {
-            tablet.setPrice(Double.parseDouble(elementValueRead));
+        if (element.equalsIgnoreCase("game_price")) {
+            game.setPrice(Double.parseDouble(elementValueRead));
             return;
         }
-        if (element.equalsIgnoreCase("tablet_image")) {
-            tablet.setImage(elementValueRead);
+        if (element.equalsIgnoreCase("game_image")) {
+            game.setImage(elementValueRead);
             return;
         }
-        if (element.equalsIgnoreCase("tablet_retailer")) {
-            tablet.setRetailer(elementValueRead);
+        if (element.equalsIgnoreCase("game_retailer")) {
+            game.setRetailer(elementValueRead);
             return;
         }
-        if (element.equalsIgnoreCase("tablet_condition")) {
-            tablet.setCondition(elementValueRead);
+        if (element.equalsIgnoreCase("game_condition")) {
+            game.setCondition(elementValueRead);
             return;
         }
-        if (element.equalsIgnoreCase("tablet_discount")) {
-            tablet.setDiscount(Double.parseDouble(elementValueRead));
+        if (element.equalsIgnoreCase("game_discount")) {
+            game.setDiscount(Double.parseDouble(elementValueRead));
             return;
         }
     }

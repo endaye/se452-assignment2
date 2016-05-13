@@ -1,6 +1,9 @@
 package main;
 
-import item.*;
+import item.console.ConsoleHashMap;
+import item.dataload.SaxParserXMLdataStore;
+import item.game.GameHashMap;
+import item.tablet.TabletHashMap;
 import user.UserHashMap;
 
 import javax.servlet.ServletException;

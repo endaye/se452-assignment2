@@ -1,9 +1,9 @@
 package item;
 
-import item.Accessory;
-import item.Console;
-import item.Game;
-import item.Tablet;
+import item.accessory.Accessory;
+import item.console.Console;
+import item.game.Game;
+import item.tablet.Tablet;
 
 /**
  * generate a item HTML div

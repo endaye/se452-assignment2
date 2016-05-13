@@ -1,4 +1,4 @@
-package item;
+package item.accessory;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import item.console.Console;
+import item.console.ConsoleHashMap;
+import item.GenerateItemHtmlHandler;
 import main.*;
 
 @WebServlet(name = "AccessoryList", urlPatterns = "/AccessoryList")

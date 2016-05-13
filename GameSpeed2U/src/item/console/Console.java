@@ -1,4 +1,7 @@
-package item;
+package item.console;
+
+import item.CatalogItem;
+import item.accessory.Accessory;
 
 import java.util.HashMap;
 

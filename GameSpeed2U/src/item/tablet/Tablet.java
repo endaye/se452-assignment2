@@ -1,4 +1,4 @@
-package item;
+package item.tablet;
 
 public class Tablet {
 	private String name;

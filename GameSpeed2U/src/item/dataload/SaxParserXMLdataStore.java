@@ -1,4 +1,4 @@
-package item;
+package item.dataload;
 /*********
  http://www.saxproject.org/
 
@@ -20,6 +20,10 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import item.tablet.Tablet;
+import item.accessory.Accessory;
+import item.console.Console;
+import item.game.Game;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 

@@ -1,4 +1,6 @@
-package item;
+package item.game;
+
+import item.CatalogItem;
 
 public class Game extends CatalogItem {
 

@@ -1,6 +1,6 @@
-package item;
+package item.dataload;
 
-import item.Accessory;
+import item.accessory.Accessory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

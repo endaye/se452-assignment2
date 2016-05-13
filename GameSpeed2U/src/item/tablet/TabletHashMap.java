@@ -1,4 +1,4 @@
-package item;
+package item.tablet;
 
 import java.util.HashMap;
 

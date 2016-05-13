@@ -1,4 +1,4 @@
-package item;
+package item.console;
 
 import java.util.HashMap;
 

@@ -1,4 +1,6 @@
-package item;
+package item.accessory;
+
+import item.CatalogItem;
 
 public class Accessory extends CatalogItem {
 

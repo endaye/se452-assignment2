@@ -1,6 +1,12 @@
 package main;
 
-import item.*;
+import item.accessory.Accessory;
+import item.console.Console;
+import item.console.ConsoleHashMap;
+import item.game.Game;
+import item.game.GameHashMap;
+import item.tablet.Tablet;
+import item.tablet.TabletHashMap;
 import user.*;
 import order.*;
 

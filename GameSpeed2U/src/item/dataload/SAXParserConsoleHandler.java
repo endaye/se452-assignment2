@@ -1,7 +1,7 @@
-package item;
+package item.dataload;
 
-import item.Accessory;
-import item.Console;
+import item.accessory.Accessory;
+import item.console.Console;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

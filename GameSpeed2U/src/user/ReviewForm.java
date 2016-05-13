@@ -2,7 +2,7 @@ package user;
 
 /**
  1. ProductModelName: XBOX 360
- 2. ProductCategory: Gaming item.Console
+ 2. ProductCategory: Gaming Console
  3. ProductPrice: $499
  4. RetailerName: GameSpeed
  5. RetailerZip: 60616
