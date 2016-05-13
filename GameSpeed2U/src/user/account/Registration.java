@@ -1,8 +1,8 @@
-package user;
+package user.account;
 
 import main.Helper;
-import user.User;
-import user.UserHashMap;
+import user.account.User;
+import user.account.UserHashMap;
 
 import java.io.IOException;
 import java.io.PrintWriter;

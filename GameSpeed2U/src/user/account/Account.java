@@ -1,7 +1,7 @@
-package user;
+package user.account;
 
 import main.Helper;
-import user.User;
+import user.account.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

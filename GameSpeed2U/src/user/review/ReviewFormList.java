@@ -1,4 +1,4 @@
-package user;
+package user.review;
 
 import java.util.ArrayList;
 

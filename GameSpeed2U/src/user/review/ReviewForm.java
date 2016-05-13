@@ -1,4 +1,4 @@
-package user;
+package user.review;
 
 /**
  1. ProductModelName: XBOX 360

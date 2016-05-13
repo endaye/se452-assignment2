@@ -4,7 +4,7 @@ import item.console.ConsoleHashMap;
 import item.dataload.SaxParserXMLdataStore;
 import item.game.GameHashMap;
 import item.tablet.TabletHashMap;
-import user.UserHashMap;
+import user.account.UserHashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

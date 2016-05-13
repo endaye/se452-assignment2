@@ -1,4 +1,6 @@
-package user;
+package user.account;
+
+import user.info.UserPersonalInfo;
 
 public class User {
 	private int id;

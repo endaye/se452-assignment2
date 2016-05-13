@@ -1,4 +1,4 @@
-package user;
+package user.info;
 
 /**
  * Created by yzhang on 5/2/16.

@@ -7,8 +7,14 @@ import item.game.Game;
 import item.game.GameHashMap;
 import item.tablet.Tablet;
 import item.tablet.TabletHashMap;
-import user.*;
-import order.*;
+import order.history.OrderHistoriesList;
+import order.history.OrderHistory;
+import order.order.OrderItem;
+import order.order.OrdersHashMap;
+import user.account.User;
+import user.account.UserHashMap;
+import user.review.ReviewForm;
+import user.review.ReviewFormList;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -154,7 +160,7 @@ public class Helper {
 		return 0;
 	}
 	
-    // store review into ArrayList<order.OrderItem>
+    // store review into ArrayList<OrderItem>
 	public void storeReview(String id, String type, String maker, String acc, String text){
 		if(!OrdersHashMap.orders.containsKey(username())) {
 			ArrayList<OrderItem> arr = new ArrayList<OrderItem>();
@@ -171,7 +177,7 @@ public class Helper {
 		ReviewFormList.reviews.add(r);
 	}
 
-    // store product into ArrayList<order.OrderItem>
+    // store product into ArrayList<OrderItem>
     public void storeProduct(String id, String type, String maker, String acc){
         if(!OrdersHashMap.orders.containsKey(username())) {
             ArrayList<OrderItem> arr = new ArrayList<OrderItem>();

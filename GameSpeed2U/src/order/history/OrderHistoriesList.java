@@ -1,4 +1,4 @@
-package order;
+package order.history;
 
 import java.util.ArrayList;
 

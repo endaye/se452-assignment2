@@ -1,4 +1,4 @@
-package order;
+package order.order;
 
 public class OrderItem {
 	private String name;

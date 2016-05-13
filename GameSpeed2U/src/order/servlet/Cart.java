@@ -1,6 +1,7 @@
-package order;
+package order.servlet;
 
 import main.Helper;
+import order.order.OrderItem;
 
 import java.io.IOException;
 import java.io.PrintWriter;

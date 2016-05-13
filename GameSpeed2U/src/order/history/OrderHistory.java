@@ -1,4 +1,6 @@
-package order;
+package order.history;
+
+import order.order.OrderItem;
 
 import java.util.ArrayList;
 
