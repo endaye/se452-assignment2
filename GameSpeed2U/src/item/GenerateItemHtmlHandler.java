@@ -12,22 +12,22 @@ import item.Tablet;
 public class GenerateItemHtmlHandler {
     private String out = "";
 
-    // item.Game
+    // Game
     public GenerateItemHtmlHandler(String gameId, Game game) {
         generateGameItemHtml(gameId, game.getName(), game.getPrice(), game.getImage(), game.getRetailer());
     }
 
-    // item.Accessory
+    // Accessory
     public GenerateItemHtmlHandler(String accId, Accessory accessory, String consoleId) {
         generateAccessoryItemHtml(accId, accessory.getName(), accessory.getPrice(), accessory.getImage(), accessory.getRetailer(), consoleId);
     }
 
-    // item.Console
+    // Console
     public GenerateItemHtmlHandler(String consoleId, Console console) {
         generateConsoleItemHtml(consoleId, console.getName(), console.getPrice(), console.getImage(), console.getRetailer());
     }
 
-    // item.Tablet
+    // Tablet
     public GenerateItemHtmlHandler(String tabletId, Tablet tablet) {
         generateTabletItemHtml(tabletId, tablet.getName(), tablet.getPrice(), tablet.getImage(), tablet.getRetailer());
     }
@@ -36,7 +36,7 @@ public class GenerateItemHtmlHandler {
         return out;
     }
 
-    // item.Game
+    // Game
     private void generateGameItemHtml(String id, String name, double price, String image, String maker) {
         out += "<div class='item'><div class='item-image'>" +
                 "<img src='images/games/"+ image + "' " +
@@ -53,7 +53,7 @@ public class GenerateItemHtmlHandler {
                 "</ul></div></div>";
     }
 
-    // item.Accessory
+    // Accessory
     private void generateAccessoryItemHtml(String id, String name, double price, String image, String maker, String consoleId) {
         out += "<div class='item'><div class='item-image'>" +
                 "<img src='images/accessories/"+ image + "' " +
@@ -69,7 +69,7 @@ public class GenerateItemHtmlHandler {
                 "Reviews</a></span></li></ul></div></div>";
     }
 
-    // item.Console
+    // Console
     private void generateConsoleItemHtml(String id, String name, double price, String image, String maker) {
         out += "<div class='item'><div class='item-image'>" +
                 "<img src='images/consoles/"+ image + "' " +
@@ -80,14 +80,14 @@ public class GenerateItemHtmlHandler {
                 "<li><span class='item-button'><a class='button' " +
                 "href='Cart?id="+ id +"&type=consoles&maker="+ maker.toLowerCase() +"'>Buy Now</a></span></li>";
         out += "<li><span class='item-button'><a class='button' " +
-                "href='item.AccessoryList?maker=" + maker.toLowerCase() + "&console=" + id.toLowerCase() + "'>" +
+                "href='AccessoryList?maker=" + maker.toLowerCase() + "&console=" + id.toLowerCase() + "'>" +
                 "View Accessories</a></span></li>";
         out += "<li><span class='item-button'><a class='button' " +
                 "href='Review?id="+ id +"&type=consoles&maker="+ maker.toLowerCase() +"'>" +
                 "Reviews</a></span></li></ul></div></div>";
     }
 
-    // item.Game
+    // Game
     private void generateTabletItemHtml(String id, String name, double price, String image, String maker) {
         out += "<div class='item'><div class='item-image'>" +
                 "<img src='images/tablets/"+ image + "' " +

@@ -120,17 +120,17 @@ public class SaxParserXMLdataStore {
     }
 
     private void prettyPrint() {
-        System.out.println("\n####### item.Accessory #######\n");
+        System.out.println("\n####### Accessory #######\n");
         for (String key: accessories.keySet()) {
             String value = accessories.get(key).toString();
             System.out.println(key + ": " + value);
         }
-        System.out.println("\n####### item.Console #######\n");
+        System.out.println("\n####### Console #######\n");
         for (String key: consoles.keySet()) {
             String value = consoles.get(key).toString();
             System.out.println(key + ": " + value);
         }
-        System.out.println("\n####### item.Game #######\n");
+        System.out.println("\n####### Game #######\n");
         for (String key: games.keySet()) {
             String value = games.get(key).toString();
             System.out.println(key + ": " + value);

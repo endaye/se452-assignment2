@@ -17,7 +17,7 @@ package user;
  14. UserOccupation: accountant
  15. ReviewRating: 4
  16. ReviewDate: 12/15/2013
- 17. ReviewText: It has excellent clarity and motion refresh rate for Batman item.Game, however,
+ 17. ReviewText: It has excellent clarity and motion refresh rate for Batman Game, however,
  it overheats after 2 hours of use
  */
 public class ReviewForm {
