@@ -65,6 +65,11 @@ public class Helper {
 					"</span></ul></nav>" +
 					"<div id='page'>";
 			pw.print(result);
+		} else if (file == "site_sidebar.html") {
+			if (session.getAttribute("usertype")!=null && session.getAttribute("usertype").toString().equals("manager")) {
+				result = HtmlToString("site_sidebar_sales.html");
+			}
+			pw.print(result);
 		} else {
             pw.print(result);
         }
