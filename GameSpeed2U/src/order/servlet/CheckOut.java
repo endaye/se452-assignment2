@@ -50,6 +50,7 @@ public class CheckOut extends HttpServlet {
                 pw.print("<table>");
                 pw.print("<tr><th>Order #</th><th>" + oh.getId() +"</th><th></th></tr>");
                 pw.print("<tr><th>Date</th><th>" + oh.getDate() +"</th><th></th></tr>");
+                pw.print("<tr><th>Delivery</th><th>" + oh.getDelivery() +"</th><th></th></tr>");
                 pw.print("<tr><th>Total</th><th>$" + oh.getTotalPrice() +"</th><th></th></tr>");
                 int i = 1;
                 for (OrderItem oi : oh.getItems()) {
@@ -64,7 +65,7 @@ public class CheckOut extends HttpServlet {
             }
         } catch (Exception e) {
             pw.print("<h4 style='color:red'>Oops! Checkout Error!</h4>");
-            System.out.println("error: " + e.toString());
+            System.out.println("Check out error: " + e.toString());
         } finally {
             pw.print("</article></section>");
             helper.printHtml("site_sidebar.html");

@@ -1,5 +1,6 @@
 package main;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import item.accessory.Accessory;
 import item.console.Console;
 import item.console.ConsoleHashMap;
@@ -22,11 +23,14 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Calendar;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -276,6 +280,16 @@ public class Helper {
 		return dateFormat.format(date).toString(); 
 	}
 
+	public String deliveryDate() {
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/YYYY");
+		Date date = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.DATE, 14); // add 10 days
+		date = cal.getTime();
+		return dateFormat.format(date).toString();
+	}
+
     public String currentTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-G-HH-mm-ss-z");
         Date date = new Date();
@@ -293,6 +307,7 @@ public class Helper {
         }
         orderHistory.setId(id);
         orderHistory.setDate(currentDate());
+        orderHistory.setDelivery(deliveryDate());
         orderHistory.setUser(username());
         orderHistory.setStatus("Confirmed");
         orderHistory.setTotalPrice(totalPrice);
@@ -309,6 +324,19 @@ public class Helper {
         }
         return null;
     }
+
+	public ArrayList<OrderHistory> getAllOrderHistory() {
+		return OrderHistoriesList.orderHistories;
+	}
+
+	public void removeOrder(String orderId) {
+		for (OrderHistory oh : OrderHistoriesList.orderHistories) {
+			if (oh.getId().equals(orderId)) {
+				OrderHistoriesList.orderHistories.remove(oh);
+				break;
+			}
+		}
+	}
 
     public ArrayList<OrderHistory> getOrderHistory() {
         ArrayList<OrderHistory> ohs = new ArrayList<OrderHistory>();

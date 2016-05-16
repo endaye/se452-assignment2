@@ -7,14 +7,16 @@ import java.util.ArrayList;
 public class OrderHistory {
     private String id;
     private String date;
+    private String delivery;
     private String user;
     private String status;
     private double totalPrice;
     private ArrayList<OrderItem> items;
 
-    public OrderHistory(String id, String date, String user, String status, double totalPrice, ArrayList<OrderItem> items) {
+    public OrderHistory(String id, String date, String delivery, String user, String status, double totalPrice, ArrayList<OrderItem> items) {
         setId(id);
         setDate(date);
+        setDelivery(delivery);
         setUser(user);
         setStatus(status);
         setTotalPrice(totalPrice);
@@ -35,6 +37,14 @@ public class OrderHistory {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(String delivery) {
+        this.delivery = delivery;
     }
 
     public String getUser() {

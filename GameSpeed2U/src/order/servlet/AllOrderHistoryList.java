@@ -14,9 +14,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-
-@WebServlet(name = "OrderHistory", urlPatterns = "/OrderHistory")
-public class UserOrderHistoryList extends HttpServlet {
+@WebServlet(name = "AllOrderHistory", urlPatterns = "/AllOrderHistory")
+public class AllOrderHistoryList extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response)
             throws ServletException, IOException {
@@ -34,7 +33,7 @@ public class UserOrderHistoryList extends HttpServlet {
 
         helper.printHtml("site_header.html");
         pw.print("<div id='body'><section id='content'><article class='expanded'>");
-        pw.print("<h2>" + helper.username() + "'s Order History</h2>");
+        pw.print("<h2>All Order History</h2>");
         try {
             if (!helper.isLoggedin()) {
                 HttpSession session = request.getSession(true);
@@ -42,7 +41,7 @@ public class UserOrderHistoryList extends HttpServlet {
                 response.sendRedirect("Login");
                 return;
             }
-            ArrayList<OrderHistory> ohs = helper.getOrderHistory();
+            ArrayList<OrderHistory> ohs = helper.getAllOrderHistory();
             if (ohs.size() > 0) {
                 String orderId  = request.getParameter("orderId");
                 if (orderId != null) {
@@ -50,9 +49,11 @@ public class UserOrderHistoryList extends HttpServlet {
                 }
                 for (OrderHistory oh: ohs) {
                     if (oh.getItems().size() > 0) {
-                        pw.print("<form><table>");
+                        pw.print("<form method='post' action='AllOrderHistory'>");
+                        pw.print("<table>");
                         pw.print("<tr><th>Order #</th><th>" + oh.getId() +"</th><th></th></tr>");
-                        pw.print("<tr><th>Date</th><th>" + oh.getDate() +"</th><th></th></tr>");
+                        pw.print("<tr><th>Buyer</th><th>" + oh.getUser() +"</th><th></th></tr>");
+                        pw.print("<tr><th>Order Date</th><th>" + oh.getDate() +"</th><th></th></tr>");
                         pw.print("<tr><th>Delivery Date</th><th>" + oh.getDelivery() + "</th><th></th></tr>");
                         pw.print("<tr><th>Total</th><th>$" + oh.getTotalPrice() +"</th><th></th></tr>");
                         int i = 1;
@@ -62,12 +63,12 @@ public class UserOrderHistoryList extends HttpServlet {
                             pw.print("</tr>");
                             i++;
                         }
-                        pw.print("<tr><th></th><th>Total</th><th>$" + oh.getTotalPrice() + "</th></tr>");
-                        pw.print("<tr><th><input hidden name='orderId' value='"+ oh.getId() +"'></input></th>");
+                        pw.print("<tr><th></th><th>Total</th><th>$"+oh.getTotalPrice()+"</th></tr>");
+                        pw.print("<tr><input hidden name='orderId' value='"+ oh.getId() +"'></input>");
                         pw.print("<th></th>");
-                        pw.print("<th><input type='submit' name='ByUser' value='Cancel' style='float: right;'></input></th>");
-                        pw.print("</tr></table></form>");
-
+                        pw.print("<th><input type='submit' class='button' name='ByUser' value='Remove' style='float: right;'></input></th>");
+                        pw.print("<th><input type='submit' class='button' name='ByUser' value='Update' style='float: right;'></input></th></tr></table>");
+                        pw.print("</form>");
                     } else {
                         pw.print("<h4 style='color:red'>Oops!</h4>");
                     }

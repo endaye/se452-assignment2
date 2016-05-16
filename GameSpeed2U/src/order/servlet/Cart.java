@@ -62,7 +62,7 @@ public class Cart extends HttpServlet {
             }
         } catch (Exception e) {
             pw.print("Oops!");
-            System.out.println("error: " + e.toString());
+            System.out.println("Cart error: " + e.toString());
         } finally {
             pw.print("</article></section>");
             helper.printHtml("site_sidebar.html");

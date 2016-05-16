@@ -89,7 +89,7 @@ public class AddNewUser extends HttpServlet {
 				+ "<div style='width:400px; margin:25px; margin-left: auto;margin-right: auto;'>");
 		if (error)
 			pw.print("<h4 style='color:red'>"+error_msg+"</h4>");
-		pw.print("<form method='post' action='Registration'>"
+			pw.print("<form method='post' action='Registration'>"
 				+ "<table style='width:100%'><tr><td>"
 				+ "<h3>Username</h3></td><td><input type='text' name='username' value='' class='input' required></input>"
 				+ "</td></tr><tr><td>"
@@ -97,7 +97,7 @@ public class AddNewUser extends HttpServlet {
 				+ "</td></tr><tr><td>"
 				+ "<h3>Re-Password</h3></td><td><input type='password' name='repassword' value='' class='input' required></input>"
 				+ "</td></tr><tr><td>"
-				+ "<h3>User Type</h3></td><td><select name='usertype' class='input'><option value='customer' selected>Customer</option><option value='retailer'>Store Manager</option><option value='manager'>Salesman</option></select>"
+				+ "<h3>User Type</h3></td><td><select disabled name='usertype' class='input'><option value='customer' selected>Customer</option><option value='retailer'>Store Manager</option><option value='manager'>Salesman</option></select>"
 				+ "</td></tr></table>"
 				+ "<input type='submit' class='btnbuy' name='ByUser' value='Create User' style='float: right;height: 20px margin: 20px; margin-right: 10px;'></input>"
 				+ "</form>" + "</div></div></div>");
