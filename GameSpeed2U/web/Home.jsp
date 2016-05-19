@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<%@ page import="main.Helper" %>
+
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>GameSpeed</title>
@@ -11,53 +11,7 @@
 </head>
 <body>
 <div id="container">
-    <header>
-        <h1><a href="Home.jsp">Game<span>Speed</span></a></h1>
-        <h2>Made by Yuancheng Zhang</h2>
-    </header>
-
-    <nav>
-        <ul>
-            <li class="start selected"><a href="Home.jsp">Home</a></li>
-            <%
-                if (session.getAttribute("usertype")!=null && session.getAttribute("usertype").toString().equals("manager")) {
-            %>
-            <li><a href="AddNewUser">Add New User</a></li>
-            <li><a href="AllOrderHistory">Order History</a></li>
-            <%
-            } else {
-            %>
-            <li><a href="ConsoleList">Consoles</a></li>
-            <li><a href="GamesList">Games</a></li>
-            <li><a href="TabletList">Tablets</a></li>
-            <li><a href="Trending">Trending</a></li>
-            <%
-                }
-            %>
-            <!-- end #header-->
-            <span id='login'>
-                <%
-                    Helper helper = new Helper(request);
-                    if(session.getAttribute("username")!=null) {
-                        String username = session.getAttribute("username").toString();
-                        username = Character.toUpperCase(username.charAt(0)) + username.substring(1);
-                %>
-                    <li><a>Hello, <%= username%></a></li>
-                    <li><a href='Account'>Account</a></li>
-                    <li><a href='Logout'>Logout</a></li>
-                <%
-                } else {
-                %>
-                    <li><a href='Login'>Login</a></li>
-                <%
-                    }
-                %>
-			    <li class='end'>
-                    <a href='Cart'>Cart(<%= Integer.toString(helper.CartCount())%>)</a>
-                </li>
-            </span>
-        </ul>
-    </nav>
+    <%@ include file="site_header.jsp"%>
     <div id='page'>
         <!-- start #content -->
         <div id="body">
@@ -117,87 +71,10 @@
                     </div>
                 </article>
             </section>
-
             <!-- end #content -->
-
-
-            <!-- start #sidebar-->
-            <aside class="sidebar">
-                <ul>
-                    <%
-                        if (session.getAttribute("usertype")!=null && session.getAttribute("usertype").toString().equals("manager")) {
-                    %>
-                    <%-- salesman sidebar --%>
-                    <li>
-                        <h4>Management</h4>
-                        <ul>
-                            <li id="first"><a href="AddNewUser">Add New User</a></li>
-                            <li><a href="AllOrderHistory">Order History</a></li>
-                        </ul>
-                    </li>
-                    <%
-                    } else {
-                    %>
-                    <%-- customer sidebar --%>
-                    <li>
-                        <h4>Search Product</h4>
-                        <ul>
-                            <li class="text">
-                                <div name="autofillform">
-                                    <input type="text" name="complete-field" value="" class="input" id="complete-field" onkeyup="doCompletion()" autocomplete="off" placeholder="search here.." style="padding: 5px; font-size: 16px;" />
-                                    <div id="auto-row">
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>Consoles</h4>
-                        <ul>
-                            <li id="first"><a href="ConsoleList?maker=microsoft">Microsoft</a></li>
-                            <li><a href="ConsoleList?maker=sony">Sony</a></li>
-                            <li><a href="ConsoleList?maker=nintendo">Nintendo</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <h4>Games</h4>
-                        <ul>
-                            <li><a href="GamesList?maker=electronicArts">Electronic Arts</a></li>
-                            <li><a href="GamesList?maker=activision">Activision</a></li>
-                            <li><a href="GamesList?maker=takeTwoInteractive">Take-Two Interactive</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>Tablets</h4>
-                        <ul>
-                            <li><a href="TabletList?maker=apple">Apple</a></li>
-                            <li><a href="TabletList?maker=microsoft">Microsoft</a></li>
-                            <li><a href="TabletList?maker=samsung">Samsung</a></li>
-                        </ul>
-                    </li>
-                    <%
-                        }
-                    %>
-                </ul>
-            </aside>
-            <div class="clear"></div>
+            <%@ include file="site_sidebar.jsp" %>
         </div>
-
-        <!-- end #sidebar-->
-
-        <!-- start #footer -->
-        <div style="clear: both;">&nbsp;</div>
-
-        <footer>
-            <div class="footer-bottom">
-                <p>&copy; 2016 GameSpeed. All rights reserved.</p>
-                <p>DePaul University - SE450 Assignment_2 | Student: Zhang, Yuancheng | Instructor: Bader, Atef</p>
-            </div>
-
-        </footer>
+        <%@ include file="site_footer.jsp"%>
     </div>
-    <!-- end #footer -->
-
 </body>
 </html>
