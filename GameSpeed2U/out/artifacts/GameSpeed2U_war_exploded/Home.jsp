@@ -23,8 +23,8 @@
             <li><a href="TabletList">Tablets</a></li>
             <li><a href="Trending">Trending</a></li>
             <!-- end #header-->
-            <span id='login'>"
-			<li><a href='Login'>Login</a></li>"
+            <span id='login'>
+			<li><a href='Login'>Login</a></li>
 			<li class='end'>
                 <a href='Cart'>Cart</a>
             </li>
