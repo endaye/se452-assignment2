@@ -11,7 +11,7 @@
 <body>
 <div id="container">
     <header>
-        <h1><a href="Home">Game<span>Speed</span></a></h1>
+        <h1><a href="Home.jsp">Game<span>Speed</span></a></h1>
         <h2>Made by Yuancheng Zhang</h2>
     </header>
 
@@ -24,10 +24,26 @@
             <li><a href="Trending">Trending</a></li>
             <!-- end #header-->
             <span id='login'>
-			<li><a href='Login'>Login</a></li>
-			<li class='end'>
-                <a href='Cart'>Cart</a>
-            </li>
+                <%
+                    if(session.getAttribute("username")!=null) {
+                        String username = session.getAttribute("username").toString();
+                        username = Character.toUpperCase(username.charAt(0)) + username.substring(1);
+                %>
+                    <li><a>Hello, <%= username%></a></li>
+                    <li><a href='Account'>Account</a></li>
+                    <li><a href='Logout'>Logout</a></li>
+                <%
+                } else {
+                %>
+                    <li><a href='Login'>Login</a></li>
+                <%
+                    }
+                %>
+
+
+			    <li class='end'>
+                    <a href='Cart'>Cart</a>
+                </li>
             </span>
         </ul>
     </nav>
