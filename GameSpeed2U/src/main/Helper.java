@@ -48,6 +48,12 @@ public class Helper {
 		this.session = req.getSession(true);
 	}
 
+	public Helper(HttpServletRequest req) {
+		this.req = req;
+		this.url = this.getFullURL();
+		this.session = req.getSession(true);
+	}
+
 
 	public void printHtml(String file) {
 		String result = HtmlToString(file);

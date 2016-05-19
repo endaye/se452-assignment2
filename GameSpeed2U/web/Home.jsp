@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page import="main.Helper" %>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>GameSpeed</title>
@@ -17,14 +18,26 @@
 
     <nav>
         <ul>
-            <li class="start selected"><a href="Home">Home</a></li>
-            <li class=""><a href="ConsoleList">Consoles</a></li>
+            <li class="start selected"><a href="Home.jsp">Home</a></li>
+            <%
+                if (session.getAttribute("usertype")!=null && session.getAttribute("usertype").toString().equals("manager")) {
+            %>
+            <li><a href="AddNewUser">Add New User</a></li>
+            <li><a href="AllOrderHistory">Order History</a></li>
+            <%
+            } else {
+            %>
+            <li><a href="ConsoleList">Consoles</a></li>
             <li><a href="GamesList">Games</a></li>
             <li><a href="TabletList">Tablets</a></li>
             <li><a href="Trending">Trending</a></li>
+            <%
+                }
+            %>
             <!-- end #header-->
             <span id='login'>
                 <%
+                    Helper helper = new Helper(request);
                     if(session.getAttribute("username")!=null) {
                         String username = session.getAttribute("username").toString();
                         username = Character.toUpperCase(username.charAt(0)) + username.substring(1);
@@ -39,10 +52,8 @@
                 <%
                     }
                 %>
-
-
 			    <li class='end'>
-                    <a href='Cart'>Cart</a>
+                    <a href='Cart'>Cart(<%= Integer.toString(helper.CartCount())%>)</a>
                 </li>
             </span>
         </ul>
@@ -113,6 +124,21 @@
             <!-- start #sidebar-->
             <aside class="sidebar">
                 <ul>
+                    <%
+                        if (session.getAttribute("usertype")!=null && session.getAttribute("usertype").toString().equals("manager")) {
+                    %>
+                    <%-- salesman sidebar --%>
+                    <li>
+                        <h4>Management</h4>
+                        <ul>
+                            <li id="first"><a href="AddNewUser">Add New User</a></li>
+                            <li><a href="AllOrderHistory">Order History</a></li>
+                        </ul>
+                    </li>
+                    <%
+                    } else {
+                    %>
+                    <%-- customer sidebar --%>
                     <li>
                         <h4>Search Product</h4>
                         <ul>
@@ -150,6 +176,9 @@
                             <li><a href="TabletList?maker=samsung">Samsung</a></li>
                         </ul>
                     </li>
+                    <%
+                        }
+                    %>
                 </ul>
             </aside>
             <div class="clear"></div>
