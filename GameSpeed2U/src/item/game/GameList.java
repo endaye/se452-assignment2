@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import item.GenerateItemHtmlHandler;
 import main.*;
 
-@WebServlet(name = "GameList", urlPatterns = "/GamesList")
-public class GamesList extends HttpServlet {
+@WebServlet(name = "GameList", urlPatterns = "/GameList")
+public class GameList extends HttpServlet {
     private static final long serialVersionUID = 1L;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

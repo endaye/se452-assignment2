@@ -17,7 +17,7 @@
         } else {
         %>
         <li><a href="ConsoleList">Consoles</a></li>
-        <li><a href="GamesList">Games</a></li>
+        <li><a href="GameList.jsp">Games</a></li>
         <li><a href="TabletList">Tablets</a></li>
         <li><a href="Trending">Trending</a></li>
         <%

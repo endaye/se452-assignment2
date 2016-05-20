@@ -8,7 +8,7 @@
         <param-value>/ConsoleCatalog.xml</param-value>
     </context-param>
     <welcome-file-list>
-		<welcome-file>Home</welcome-file>
+		<welcome-file>Home.jsp</welcome-file>
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>Startup</servlet-name>
