@@ -3,33 +3,19 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 	<display-name>Games Speed</display-name>
-    <context-param>
-        <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/ConsoleCatalog.xml</param-value>
-    </context-param>
+
     <welcome-file-list>
 		<welcome-file>Home.jsp</welcome-file>
 	</welcome-file-list>
+
 	<servlet>
 		<servlet-name>Startup</servlet-name>
-		<servlet-class>main.Startup</servlet-class>
+		<jsp-file>/Startup.jsp</jsp-file>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<servlet>
-		<servlet-name>Home</servlet-name>
-		<servlet-class>main.Home</servlet-class>
-	</servlet>
-    <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-		<servlet-name>Home</servlet-name>
-		<url-pattern>/Home</url-pattern>
+	<!--mapping-->
+	<servlet-mapping>
+		<servlet-name>Startup</servlet-name>
+		<url-pattern>/Startup</url-pattern>
 	</servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.xhtml</url-pattern>
-    </servlet-mapping>
 </web-app>

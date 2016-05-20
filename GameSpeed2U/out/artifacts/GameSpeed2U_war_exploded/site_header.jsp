@@ -16,10 +16,9 @@
         <%
         } else {
         %>
-        <li><a href="ConsoleList">Consoles</a></li>
+        <li><a href="ConsoleList.jsp">Consoles</a></li>
         <li><a href="GameList.jsp">Games</a></li>
-        <li><a href="TabletList">Tablets</a></li>
-        <li><a href="Trending">Trending</a></li>
+        <li><a href="TabletList.jsp">Tablets</a></li>
         <%
             }
         %>

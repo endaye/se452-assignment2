@@ -31,26 +31,26 @@
         <li>
             <h4>Consoles</h4>
             <ul>
-                <li id="first"><a href="ConsoleList?maker=microsoft">Microsoft</a></li>
-                <li><a href="ConsoleList?maker=sony">Sony</a></li>
-                <li><a href="ConsoleList?maker=nintendo">Nintendo</a></li>
+                <li id="first"><a href="ConsoleList.jsp?maker=microsoft">Microsoft</a></li>
+                <li><a href="ConsoleList.jsp?maker=sony">Sony</a></li>
+                <li><a href="ConsoleList.jsp?maker=nintendo">Nintendo</a></li>
             </ul>
         </li>
 
         <li>
             <h4>Games</h4>
             <ul>
-                <li><a href="GameList?maker=electronicArts">Electronic Arts</a></li>
-                <li><a href="GameList?maker=activision">Activision</a></li>
-                <li><a href="GameList?maker=takeTwoInteractive">Take-Two Interactive</a></li>
+                <li><a href="GameList.jsp?maker=electronicArts">Electronic Arts</a></li>
+                <li><a href="GameList.jsp?maker=activision">Activision</a></li>
+                <li><a href="GameList.jsp?maker=takeTwoInteractive">Take-Two Interactive</a></li>
             </ul>
         </li>
         <li>
             <h4>Tablets</h4>
             <ul>
-                <li><a href="TabletList?maker=apple">Apple</a></li>
-                <li><a href="TabletList?maker=microsoft">Microsoft</a></li>
-                <li><a href="TabletList?maker=samsung">Samsung</a></li>
+                <li><a href="TabletList.jsp?maker=apple">Apple</a></li>
+                <li><a href="TabletList.jsp?maker=microsoft">Microsoft</a></li>
+                <li><a href="TabletList.jsp?maker=samsung">Samsung</a></li>
             </ul>
         </li>
         <%
