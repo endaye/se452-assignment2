@@ -67,13 +67,17 @@
                             <ul>
                                 <li>
                                     <span class='item-button'>
-                                        <a class='button' href='Cart?id=<%= entry.getKey()%>&type=games&maker=<%= game.getRetailer().toLowerCase()%>'>Buy Now</a>
-                                </span>
+                                        <a class='button' href='Cart?id=<%= entry.getKey()%>&type=games&maker=<%= game.getRetailer().toLowerCase()%>'>
+                                            Buy Now
+                                        </a>
+                                    </span>
                                 </li>
                                 <li>
-                                <span class='item-button'>
-                                    <a class='button' href='Review?id=<%= entry.getKey()%>&type=games&maker=<%= game.getRetailer().toLowerCase()%>'>Reviews</a>
-                                </span>
+                                    <span class='item-button'>
+                                        <a class='button' href='Review?id=<%= entry.getKey()%>&type=games&maker=<%= game.getRetailer().toLowerCase()%>'>
+                                            Reviews
+                                        </a>
+                                    </span>
                                 </li>
                             </ul>
                         </div>
