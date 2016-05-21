@@ -74,5 +74,6 @@
         </div>
         <%@ include file="site_footer.jsp"%>
     </div>
+</div>
 </body>
 </html>
