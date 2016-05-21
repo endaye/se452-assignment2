@@ -19,8 +19,8 @@ import javax.servlet.http.HttpSession;
 public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response)
-            throws ServletException, IOException {
+						  HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 
@@ -37,16 +37,16 @@ public class Login extends HttpServlet {
 			hm.putAll(UserHashMap.manager);
 		}
 		User user = hm.get(username);
-		if(user!=null){
-		String user_password = user.getPassword();
-		if (password.equals(user_password)) {
-			HttpSession session = request.getSession(true);
-			
-			session.setAttribute("username", user.getName());
-			session.setAttribute("usertype", user.getUsertype());
+		if(user!=null) {
+			String user_password = user.getPassword();
+			if (password.equals(user_password)) {
+				HttpSession session = request.getSession(true);
 
-			response.sendRedirect("Home");
-			return;
+				session.setAttribute("username", user.getName());
+				session.setAttribute("usertype", user.getUsertype());
+
+				response.sendRedirect("Home");
+				return;
 			}
 		}
 		displayLogin(request, response, pw, true);
@@ -54,14 +54,14 @@ public class Login extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+						 HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		displayLogin(request, response, pw, false);
 	}
 
 	protected void displayLogin(HttpServletRequest request,
-			HttpServletResponse response, PrintWriter pw, boolean error)
+								HttpServletResponse response, PrintWriter pw, boolean error)
 			throws ServletException, IOException {
 
 		Helper helper = new Helper(request, pw);
@@ -73,7 +73,7 @@ public class Login extends HttpServlet {
 		if (error)
 			pw.print("<h4 style='color:red'>Please check your username, password and user type!</h4>");
 		HttpSession session = request.getSession(true);
-		if(session.getAttribute("login_msg")!=null){			
+		if(session.getAttribute("login_msg")!=null){
 			pw.print("<h4 style='color:red'>"+session.getAttribute("login_msg")+"</h4>");
 			session.removeAttribute("login_msg");
 		}

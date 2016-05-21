@@ -71,7 +71,7 @@
                                 </li>
                                 <li>
                                     <span class='item-button'>
-                                        <a class='button' href='AccessoryList?maker=<%=console.getRetailer().toLowerCase()%>&console=<%=entry.getKey().toLowerCase()%>'>
+                                        <a class='button' href='AccessoryList.jsp?maker=<%=console.getRetailer().toLowerCase()%>&console=<%=entry.getKey().toLowerCase()%>'>
                                             View Accessories
                                         </a>
                                     </span>
