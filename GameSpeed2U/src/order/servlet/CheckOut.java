@@ -28,7 +28,7 @@ public class CheckOut extends HttpServlet {
 
     protected void displayCheckout(HttpServletRequest request,
                                    HttpServletResponse response,
-                                   String confrimNum)
+                                   String confirmNum)
             throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
@@ -45,7 +45,7 @@ public class CheckOut extends HttpServlet {
                 return;
             }
             pw.print("<h3>Congratulations, " + helper.username() + "! Your order is confirmed.</h3>");
-            OrderHistory oh = helper.getOrderHistory(confrimNum);
+            OrderHistory oh = helper.getOrderHistory(confirmNum);
             if (oh.getItems().size() > 0) {
                 pw.print("<table>");
                 pw.print("<tr><th>Order #</th><th>" + oh.getId() +"</th><th></th></tr>");

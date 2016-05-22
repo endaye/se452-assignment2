@@ -45,9 +45,9 @@
                         </div>
                         <div class="item-detail">
                             <ul>
-                                <li><span class="item-button"><a class="button" href="Cart?id=xboxone&type=consoles&maker=microsoft">Buy Now</a></span></li>
-                                <li><span class="item-button"><a class="button" href="AccessoryList?maker=microsoft&console=xboxone">View Accessories</a></span></li>
-                                <li><span class="item-button"><a class="button" href="Review?id=xboxone&type=consoles&maker=microsoft">Reviews</a></span></li>
+                                <li><span class="item-button"><a class="button" href="Cart.jsp?id=xboxone&type=consoles&maker=microsoft">Buy Now</a></span></li>
+                                <li><span class="item-button"><a class="button" href="AccessoryList.jsp?maker=microsoft&console=xboxone">View Accessories</a></span></li>
+                                <li><span class="item-button"><a class="button" href="Review.jsp?id=xboxone&type=consoles&maker=microsoft">Reviews</a></span></li>
                             </ul>
 
                         </div>
@@ -63,9 +63,9 @@
                         </div>
                         <div class="item-detail">
                             <ul>
-                                <li><span class="item-button"><a class="button" href="Cart?id=ps4&type=consoles&maker=sony">Buy Now</a></span></li>
-                                <li><span class="item-button"><a class="button" href="AccessoryList?maker=sony&console=ps4">View Accessories</a></span></li>
-                                <li><span class="item-button"><a class="button">Reviews</a></span></li>
+                                <li><span class="item-button"><a class="button" href="Cart.jsp?id=ps4&type=consoles&maker=sony">Buy Now</a></span></li>
+                                <li><span class="item-button"><a class="button" href="AccessoryList.jsp?maker=sony&console=ps4">View Accessories</a></span></li>
+                                <li><span class="item-button"><a class="button" href="Review.jsp?id=ps4&type=consoles&maker=sony">Reviews</a></span></li>
                             </ul>
                         </div>
                     </div>

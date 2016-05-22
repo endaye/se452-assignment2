@@ -18,6 +18,7 @@
         <div id="body">
             <section id="content">
                 <article class="expanded">
+                    <%-- Check Login--%>
                     <%
                         if (!helper.isLoggedin()) {
                             session.setAttribute("login_msg", "Please Login to add items to cart");
@@ -56,7 +57,7 @@
                         </tr>
                     </table>
                     <div>
-                        <a class='button' href='CheckOut'>
+                        <a class='button' href='CheckOut.jsp'>
                             Check Out
                         </a>
                     </div>

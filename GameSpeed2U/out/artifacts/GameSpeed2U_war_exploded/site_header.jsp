@@ -40,23 +40,23 @@
                 <%
                     if (session.getAttribute("usertype") != null && session.getAttribute("usertype").toString().equals("customer")) {
                 %>
-                    <li><a href='Logout'>Logout</a></li>
+                    <li><a href='Logout.jsp'>Logout</a></li>
                     <li class='end'>
-                        <a href='Cart'>Cart(<%= Integer.toString(helper.CartCount())%>)</a>
+                        <a href='Cart.jsp'>Cart(<%= Integer.toString(helper.CartCount())%>)</a>
                     </li>
                 <%
                 } else {
                 %>
                     <li class='end'>
-                        <a href='Logout'>Logout</a>
+                        <a href='Logout.jsp'>Logout</a>
                     </li>
                 <%
                     }
                 } else {
                 %>
-                    <li><a href='Login'>Login</a></li>
+                    <li><a href='Login.jsp'>Login</a></li>
                     <li class='end'>
-                        <a href='Cart'>Cart(<%= Integer.toString(helper.CartCount())%>)</a>
+                        <a href='Cart.jsp'>Cart(<%= Integer.toString(helper.CartCount())%>)</a>
                     </li>
                 <%
                     }

@@ -59,14 +59,14 @@
                             <ul>
                                 <li>
                                     <span class='item-button'>
-                                        <a class='button' href='Cart?id=<%= entry.getKey()%>&type=accessories&maker=<%= accessory.getRetailer().toLowerCase()%>&access=<%= ConsoleName%>'>
+                                        <a class='button' href='Cart.jsp?id=<%= entry.getKey()%>&type=accessories&maker=<%= accessory.getRetailer().toLowerCase()%>&access=<%= ConsoleName%>'>
                                             Buy Now
                                         </a>
                                     </span>
                                 </li>
                                 <li>
                                     <span class='item-button'>
-                                        <a class='button' href='Review?id=<%= entry.getKey()%>&type=accessories&maker=<%= accessory.getRetailer().toLowerCase()%>&access=<%= ConsoleName%>'>
+                                        <a class='button' href='Review.jsp?id=<%= entry.getKey()%>&type=accessories&maker=<%= accessory.getRetailer().toLowerCase()%>&access=<%= ConsoleName%>'>
                                             Reviews
                                         </a>
                                     </span>
