@@ -1,6 +1,6 @@
 package user.bean;
 
-public class Login {
+public class LoginBean {
     private String username = "";
     private String password = "";
     private String usertype = "";

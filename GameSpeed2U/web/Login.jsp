@@ -18,7 +18,7 @@
     <div id='page'>
         <!-- start #content -->
         <div id="body">
-            <jsp:useBean id="login" class="user.bean.Login" scope="request"/>
+            <jsp:useBean id="login" class="user.bean.LoginBean" scope="request"/>
             <%
                 String username = request.getParameter("username");
                 String password = request.getParameter("password");
@@ -64,7 +64,7 @@
                             }
                         %>
 
-                        <form method='post' action='Login'>
+                        <form method='post' action='Login.jsp'>
                             <table style='width:100%'>
                                 <tr>
                                     <td>
@@ -97,14 +97,14 @@
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <input type='submit' class='btnbuy' value='Login.jsp' style='float: right;height: 20px margin: 20px; margin-right: 10px;'></input>
+                                        <input type='submit' class='btnbuy' value='Login' style='float: right;height: 20px margin: 20px; margin-right: 10px;'></input>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td>
                                         <strong>
-                                            <a class='' href='Registration' style='float: right;height: 20px margin: 20px;'>New User? Register here!</a>
+                                            <a class='' href='Registration.jsp' style='float: right;height: 20px margin: 20px;'>New User? Register here!</a>
                                         </strong>
                                     </td>
                                 </tr>
@@ -113,7 +113,6 @@
                     </div>
                 </div>
             </div>
-            </section>
             <!-- end #content -->
         </div>
         <%@ include file="site_footer.jsp"%>
