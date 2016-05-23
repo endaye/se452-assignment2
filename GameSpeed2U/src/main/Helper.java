@@ -71,7 +71,7 @@ public class Helper {
 				result = result + "<li><a href='Login'>Login</a></li>";
 			}
 			result = result
-					+ "<li class='end'><a href='Cart'>Cart("+CartCount()+")</a></li>" +
+					+ "<li class='end'><a href='Cart.jsp'>Cart("+CartCount()+")</a></li>" +
 					"</span></ul></nav>" +
 					"<div id='page'>";
 			pw.print(result);
