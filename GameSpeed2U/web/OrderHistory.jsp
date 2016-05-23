@@ -1,7 +1,6 @@
-<%@ page import="item.game.Game" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="item.game.GameHashMap" %>
-<%@ page import="java.util.Map" %>
+<%@ page import="order.history.OrderHistory" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="order.order.OrderItem" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,66 +21,62 @@
             <section id="content">
                 <article class="expanded">
                     <%
-                        String name = null;
-                        String CategoryName = request.getParameter("maker");
-                        HashMap<String, Game> hm = new HashMap<String, Game>();
-
-                        if (CategoryName==null) {
-                            hm.putAll(GameHashMap.electronicArts);
-                            hm.putAll(GameHashMap.activision);
-                            hm.putAll(GameHashMap.takeTwoInteractive);
-                            name = "";
-                        } else {
-                            if(CategoryName.equals("electronicArts")) {
-                                hm.putAll(GameHashMap.electronicArts);
-                                name = GameHashMap.string_electronicArts;
-                            }
-                            else if (CategoryName.equals("activision")) {
-                                hm.putAll(GameHashMap.activision);
-                                name = GameHashMap.string_activision;
-                            }
-                            else if (CategoryName.equals("takeTwoInteractive")) {
-                                hm.putAll(GameHashMap.takeTwoInteractive);
-                                name = GameHashMap.string_takeTwoInteractive;
-                            }
+                        if (!helper.isLoggedin()) {
+                            session.setAttribute("login_msg", "Please Login to add items to cart");
+                            response.sendRedirect("Login");
+                            return;
                         }
                     %>
-                    <h2><%= name%> Game</h2>
+                    <h2>Order History</h2>
                     <%
-                        for (Map.Entry<String, Game> entry : hm.entrySet()) {
-                            Game game = entry.getValue();
+                        ArrayList<OrderHistory> ohs = helper.getOrderHistory();
+                        if (ohs.size() > 0) {
+                            String orderId  = request.getParameter("orderId");
+                            if (orderId != null) {
+                                helper.removeOrder(orderId);
+                            }
+                            for (OrderHistory oh: ohs) {
+                                if (oh.getItems().size() > 0) {
                     %>
-                    <div class='item'>
-                        <div class='item-image'>
-                            <img src='images/games/<%= game.getImage()%>' alt='<%= game.getName()%>'/>
-                        </div>
-                        <div class='item-title'>
-                            <h3>
-                                <%= game.getName()%>
-                            </h3>
-                            <strong>
-                                $<%= game.getPrice()%>
-                            </strong>
-                        </div>
-                        <div class='item-detail'>
-                            <ul>
-                                <li>
-                                    <span class='item-button'>
-                                        <a class='button' href='Cart.jsp?id=<%= entry.getKey()%>&type=games&maker=<%= game.getRetailer().toLowerCase()%>'>
-                                            Buy Now
-                                        </a>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class='item-button'>
-                                        <a class='button' href='Review.jsp?id=<%= entry.getKey()%>&type=games&maker=<%= game.getRetailer().toLowerCase()%>'>
-                                            Reviews
-                                        </a>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <form>
+                        <table>
+                            <tr><th>Order #</th><th><%=oh.getId()%></th><th></th></tr>
+                            <tr><th>Date</th><th><%=oh.getDate()%></th><th></th></tr>
+                            <tr><th>Delivery Date</th><th><%=oh.getDelivery()%></th><th></th></tr>
+                            <tr><th>Total</th><th>$<%=oh.getTotalPrice()%></th><th></th></tr>
+                            <%
+                                int i = 1;
+                                for (OrderItem oi : oh.getItems()) {
+                            %>
+                            <tr>
+                                <td><%=i%></td><td><%=oi.getName()%></td><td>$<%=oi.getPrice()%></td>
+                            </tr>
+                            <%
+                                    i++;
+                                }
+                            %>
+                            <tr>
+                                <th></th>
+                                <th>Total</th>
+                                <th>$<%=oh.getTotalPrice()%></th>
+                            </tr>
+                            <tr>
+                                <th><input hidden name='orderId' value='"+ oh.getId() +"'></input></th>
+                                <th></th>
+                                <th><input type='submit' name='ByUser' value='Cancel' style='float: right;'></input></th>
+                            </tr>
+                        </table>
+                    </form>
+                    <%
+                    } else {
+                    %>
+                    <h4 style='color:red'>Oops!</h4>
+                    <%
+                            }
+                        }
+                    } else {
+                    %>
+                    <h4 style='color:red'>Your have no order history.</h4>
                     <%
                         }
                     %>

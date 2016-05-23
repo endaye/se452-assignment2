@@ -24,6 +24,13 @@
                             session.setAttribute("login_msg", "Please Login to add items to cart");
                             response.sendRedirect("Login");
                         }
+                        String id = request.getParameter("id");
+                        String type = request.getParameter("type");
+                        String maker = request.getParameter("maker");
+                        String access = request.getParameter("access");
+                        if (id != null && type != null && maker != null) {
+                            helper.storeProduct(id, type, maker, access);
+                        }
                     %>
                     <h2>Cart(<%= helper.CartCount()%>)</h2>
                     <%
