@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,8 +29,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Calendar;
-import javax.servlet.*;
-import javax.servlet.http.*;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -399,5 +398,55 @@ public class Helper {
 			ar.add(entry.getValue().getName());
 		}
 		return ar;
+	}
+
+	public String sqlHelper(String sqlStatement) {
+		String sqlResult = "";
+		try {
+			// load the driver
+			Class.forName("com.mysql.jdbc.Driver");
+			// get a connection
+			String dbURL = "jdbc:mysql://localhost:3306/GameSpeed2U?autoReconnect=true&useSSL=false";
+			String username = "root";
+			String password = "1234567";
+			Connection connection = DriverManager.getConnection(
+					dbURL, username, password);
+			// create a statement
+			Statement statement = connection.createStatement();
+			// parse the SQL string
+			sqlStatement = sqlStatement.trim();
+			if (sqlStatement.length() >= 6) {
+				String sqlType = sqlStatement.substring(0, 6);
+				if (sqlType.equalsIgnoreCase("select")) {
+					// create the HTML for the result set
+					ResultSet resultSet
+							= statement.executeQuery(sqlStatement);
+					sqlResult = SQLUtil.getHtmlTable(resultSet);
+					resultSet.close();
+				} else {
+					int i = statement.executeUpdate(sqlStatement);
+					if (i == 0) {
+						// a DDL statement
+						sqlResult =
+								"<p>The statement executed successfully.</p>";
+					} else {
+						// an INSERT, UPDATE, or DELETE statement
+						sqlResult =
+								"<p>The statement executed successfully.<br>"
+										+ i + " row(s) affected.</p>";
+					}
+				}
+			}
+			statement.close();
+			connection.close();
+		} catch (ClassNotFoundException e) {
+			sqlResult = "<p>Error loading the database driver: <br>"
+					+ e.getMessage() + "</p>";
+		} catch (SQLException e) {
+			sqlResult = "<p>Error executing the SQL statement: <br>"
+					+ e.getMessage() + "</p>";
+		} finally {
+			return sqlResult;
+		}
 	}
 }
