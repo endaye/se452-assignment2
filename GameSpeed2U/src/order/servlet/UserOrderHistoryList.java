@@ -43,6 +43,7 @@ public class UserOrderHistoryList extends HttpServlet {
             }
             ArrayList<OrderHistory> ohs = helper.getOrderHistory();
             if (ohs.size() > 0) {
+                // Cancel Order
                 String orderId  = request.getParameter("orderId");
                 if (orderId != null) {
                     helper.removeOrder(orderId);
@@ -65,6 +66,7 @@ public class UserOrderHistoryList extends HttpServlet {
                         pw.print("<tr><th></th><th>Total</th><th>$" + oh.getTotalPrice() + "</th></tr>");
                         pw.print("<tr><th><input hidden name='orderId' value='"+ oh.getId() +"'></input></th>");
                         pw.print("<th></th>");
+                        pw.print("<th><input type='submit' name='ByUser' value='Update' style='float: right;'></input></th>");
                         pw.print("<th><input type='submit' name='ByUser' value='Cancel' style='float: right;'></input></th>");
                         pw.print("</tr></table></form>");
 

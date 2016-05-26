@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddd88087-aa25-4667-bffe-954f7b9b970f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/db/ConnectionPool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/db/DBUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/db/tables.ddl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/SQLscript_4.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/GameSpeed2U_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/GameSpeed2U_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/GameSpeed2U_war_exploded/SQLscript.sql" afterPath="$PROJECT_DIR$/out/artifacts/GameSpeed2U_war_exploded/SQLscript.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/item/Trending.java" afterPath="$PROJECT_DIR$/src/item/Trending.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Helper.java" afterPath="$PROJECT_DIR$/src/main/Helper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/SQLUtil.java" afterPath="$PROJECT_DIR$/src/main/SQLUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/order/servlet/AllOrderHistoryList.java" afterPath="$PROJECT_DIR$/src/order/servlet/AllOrderHistoryList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/order/order/OrderItem.java" afterPath="$PROJECT_DIR$/src/order/order/OrderItem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/order/servlet/UserOrderHistoryList.java" afterPath="$PROJECT_DIR$/src/order/servlet/UserOrderHistoryList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SQLscript.sql" afterPath="$PROJECT_DIR$/web/SQLscript.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SQLscript_4.sql" afterPath="$PROJECT_DIR$/web/SQLscript_4.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/site_footer.html" afterPath="$PROJECT_DIR$/web/site_footer.html" />
     </list>
     <ignored path="GameSpeed2U.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,7 +41,7 @@
     <favorites_list name="GameSpeed2U" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44835868">
+    <splitter split-orientation="horizontal" split-proportion="0.47391304">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="CheckOut.java" pinned="false" current-in-tab="false">
@@ -76,14 +66,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ConnectionPool.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ConnectionPool.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/db/ConnectionPool.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8405172">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserOrderHistoryList.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/order/servlet/UserOrderHistoryList.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-15.925926">
+                  <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -103,44 +103,17 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-                  <folding>
-                    <element signature="imports" expanded="false" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SQLscript_4.sql" pinned="false" current-in-tab="false">
+          <file leaf-file-name="SQLscript_4.sql" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/SQLscript_4.sql">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-9.444445">
-                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.44516128">
+                  <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-            <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d448e682-d114-4727-a36c-5dd627cb9fe2/console.sql">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.0">
-                  <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="GameSpeed2U.Item" pinned="false" current-in-tab="false">
-            <entry file="dbDummy://dbtable:/ddfc1f26/d448e682-d114-4727-a36c-5dd627cb9fe2/GameSpeed2U.Item">
-              <provider editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                <state>
-                  <filtering enabled="true" />
                 </state>
               </provider>
             </entry>
@@ -164,11 +137,50 @@
           <file leaf-file-name="Helper.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/Helper.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.49568966">
-                  <caret line="440" column="35" selection-start-line="440" selection-start-column="31" selection-end-line="440" selection-end-column="35" />
+                <state vertical-scroll-proportion="0.36129034">
+                  <caret line="372" column="13" selection-start-line="372" selection-start-column="13" selection-end-line="372" selection-end-column="13" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <marker date="1464297067000" expanded="true" signature="10638:10748" placeholder="INSERT INTO CustomerOrders... " />
+                    <marker date="1464301729000" expanded="true" signature="10651:10761" placeholder="INSERT INTO CustomerOrders... " />
+                    <marker date="1464301729000" expanded="true" signature="12082:12120" placeholder="INSERT INTO CustomerOrders... " />
+                    <marker date="1464301729000" expanded="true" signature="12082:12121" placeholder="DELETE FROM " />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="site_footer.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web/site_footer.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-3.75">
+                  <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OrderItem.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/order/order/OrderItem.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-9.444445">
+                  <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+                  <folding>
+                    <element signature="e#589#590#0" expanded="true" />
+                    <element signature="e#605#606#0" expanded="true" />
+                    <element signature="e#638#639#0" expanded="true" />
+                    <element signature="e#657#658#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OrdersHashMap.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/order/order/OrdersHashMap.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+                  <folding>
+                    <element signature="e#180#210#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -199,8 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/GenerateItemHtmlHandler.java" />
-        <option value="$PROJECT_DIR$/src/item/SAXParserAccessoryHandler.java" />
         <option value="$PROJECT_DIR$/src/main/Home.java" />
         <option value="$PROJECT_DIR$/src/main/Startup.java" />
         <option value="$PROJECT_DIR$/src/order/CheckOut.java" />
@@ -237,19 +247,21 @@
         <option value="$PROJECT_DIR$/src/order/servlet/CheckOut.java" />
         <option value="$PROJECT_DIR$/src/main/SqlGatewayServlet.java" />
         <option value="$PROJECT_DIR$/src/SQLscript" />
-        <option value="$PROJECT_DIR$/src/order/servlet/UserOrderHistoryList.java" />
         <option value="$PROJECT_DIR$/src/db/tables.ddl" />
         <option value="$PROJECT_DIR$/src/main/SQLUtil.java" />
         <option value="$PROJECT_DIR$/src/item/Trending.java" />
         <option value="$PROJECT_DIR$/src/order/servlet/AllOrderHistoryList.java" />
         <option value="$PROJECT_DIR$/web/SQLscript.sql" />
         <option value="$PROJECT_DIR$/web/WEB-INF/SQLscript_4.sql" />
-        <option value="$PROJECT_DIR$/web/SQLscript_4.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d448e682-d114-4727-a36c-5dd627cb9fe2/console.sql" />
         <option value="$PROJECT_DIR$/src/main/ConnectionPool.java" />
         <option value="$PROJECT_DIR$/src/db/DBUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/Helper.java" />
         <option value="$PROJECT_DIR$/src/db/ConnectionPool.java" />
+        <option value="$PROJECT_DIR$/src/order/order/OrderItem.java" />
+        <option value="$PROJECT_DIR$/src/order/servlet/UserOrderHistoryList.java" />
+        <option value="$PROJECT_DIR$/web/SQLscript_4.sql" />
+        <option value="$PROJECT_DIR$/web/site_footer.html" />
+        <option value="$PROJECT_DIR$/src/main/Helper.java" />
       </list>
     </option>
   </component>
@@ -323,6 +335,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="GameSpeed2U" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameSpeed2U" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameSpeed2U" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1116,12 +1142,12 @@
       <workItem from="1464209424140" duration="1122000" />
       <workItem from="1464222142155" duration="6333000" />
       <workItem from="1464246548430" duration="189000" />
-      <workItem from="1464280223601" duration="11511000" />
+      <workItem from="1464280223601" duration="13464000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128861000" />
+    <option name="totallyTimeSpent" value="130814000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1145,11 +1171,11 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40722892" sideWeight="0.49427754" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40722892" sideWeight="0.49427754" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10658083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1423462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1350,13 +1376,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/site_footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15817223">
-          <caret line="6" column="103" selection-start-line="6" selection-start-column="103" selection-end-line="6" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/user/account/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1402,14 +1421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/order/order/OrdersHashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15126051">
-          <caret line="7" column="54" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/order/history/OrderHistoriesList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22689076">
@@ -1422,14 +1433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27731094">
           <caret line="13" column="39" selection-start-line="7" selection-start-column="4" selection-end-line="13" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/order/order/OrderItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30252102">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1529,34 +1532,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/order/servlet/UserOrderHistoryList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/SQLscript.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10358566">
           <caret line="217" column="9" selection-start-line="217" selection-start-column="2" selection-end-line="217" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/ddfc1f26/d448e682-d114-4727-a36c-5dd627cb9fe2/GameSpeed2U.Item">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1581,24 +1561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/order/servlet/AllOrderHistoryList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/SQLscript_4.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.444445">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/order/servlet/Cart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1617,25 +1579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/order/servlet/CheckOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Helper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49568966">
-          <caret line="440" column="35" selection-start-line="440" selection-start-column="31" selection-end-line="440" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1464297067000" expanded="true" signature="10638:10748" placeholder="INSERT INTO CustomerOrders... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/SQLUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1644,12 +1587,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="dbDummy://dbtable:/ddfc1f26/d448e682-d114-4727-a36c-5dd627cb9fe2/GameSpeed2U.Item">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/order/order/OrdersHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+          <folding>
+            <element signature="e#180#210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/order/order/OrderItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.444445">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/order/servlet/AllOrderHistoryList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/order/servlet/UserOrderHistoryList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.925926">
+          <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/db/ConnectionPool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8405172">
+        <state vertical-scroll-proportion="0.0">
           <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/order/servlet/CheckOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/SQLscript_4.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44516128">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/site_footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Helper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36129034">
+          <caret line="372" column="13" selection-start-line="372" selection-start-column="13" selection-end-line="372" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1464301729000" expanded="true" signature="10651:10761" placeholder="INSERT INTO CustomerOrders... " />
+            <marker date="1464301729000" expanded="true" signature="12082:12120" placeholder="INSERT INTO CustomerOrders... " />
+            <marker date="1464301729000" expanded="true" signature="12082:12121" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>

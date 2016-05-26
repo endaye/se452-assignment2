@@ -20,3 +20,5 @@ INSERT INTO CustomerOrders
 VALUES
   ("2016-05-26-AD-15-29-53-CDT-CUSTOMER", "05/26/2016", "06/09/2016", "customer", "comfirmed", 1349.97, "tti_evolve xboxone surface_pro_4");
 
+DELETE FROM CustomerOrders
+WHERE id = "2016-05-26-AD-16-51-41-CDT-CUSTOMER";

@@ -216,7 +216,7 @@ public class Helper {
                 console = hm.get(id);
 
             }
-            OrderItem orderitem = new OrderItem(console.getName(), console.getPrice(), console.getImage(), console.getRetailer());
+            OrderItem orderitem = new OrderItem(id, console.getName(), console.getPrice(), console.getImage(), console.getRetailer());
             orderItems.add(orderitem);
         }
         if(type.equals("games")){
@@ -236,7 +236,7 @@ public class Helper {
                 hm.putAll(GameHashMap.takeTwoInteractive);
                 game = hm.get(id);
             }
-            OrderItem orderitem = new OrderItem(game.getName(), game.getPrice(), game.getImage(), game.getRetailer());
+            OrderItem orderitem = new OrderItem(id, game.getName(), game.getPrice(), game.getImage(), game.getRetailer());
             orderItems.add(orderitem);
         }
 
@@ -255,7 +255,7 @@ public class Helper {
                 hm.putAll(TabletHashMap.samsung);
                 tablet = hm.get(id);
             }
-            OrderItem orderitem = new OrderItem(tablet.getName(), tablet.getPrice(), tablet.getImage(), tablet.getRetailer());
+            OrderItem orderitem = new OrderItem(id, tablet.getName(), tablet.getPrice(), tablet.getImage(), tablet.getRetailer());
             orderItems.add(orderitem);
         }
 
@@ -272,7 +272,7 @@ public class Helper {
             }
 
             Accessory accessory = console.getAccessories().get(id);
-            OrderItem orderitem = new OrderItem(accessory.getName(), accessory.getPrice(), accessory.getImage(), accessory.getRetailer());
+            OrderItem orderitem = new OrderItem(id, accessory.getName(), accessory.getPrice(), accessory.getImage(), accessory.getRetailer());
             orderItems.add(orderitem);
         }
     }
@@ -307,10 +307,9 @@ public class Helper {
 		String sqlItems = "";
         for (OrderItem oi : getCustomerOrders()) {
             items.add(new OrderItem(oi));
-			sqlItems += oi.getName() + " ";
+			sqlItems += oi.getId() + " ";
             totalPrice += oi.getPrice();
         }
-
         orderHistory.setId(id);
         orderHistory.setDate(currentDate());
         orderHistory.setDelivery(deliveryDate());
@@ -364,6 +363,22 @@ public class Helper {
 				OrderHistoriesList.orderHistories.remove(oh);
 				break;
 			}
+		}
+
+		// remove order from db
+		db.ConnectionPool pool = db.ConnectionPool.getInstance();
+		Connection connection = pool.getConnection();
+		PreparedStatement ps = null;
+		String query = "DELETE FROM CustomerOrders WHERE id = ?";
+		try {
+			ps = connection.prepareStatement(query);
+			ps.setString(1, orderId);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e);
+		} finally {
+			DBUtil.closePreparedStatement(ps);
+			pool.freeConnection(connection);
 		}
 	}
 
