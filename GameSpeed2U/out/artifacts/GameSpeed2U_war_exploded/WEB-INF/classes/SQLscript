@@ -1,0 +1,38 @@
+DROP TABLE OrderHistory CASCADE;
+DROP TABLE items CASCADE;
+DROP TABLE orders CASCADE;
+
+CREATE TABLE orders (
+	order_id	VARCHAR(60),
+    date		CHAR(10),
+    delivery 	CHAR(10),
+    user		VARCHAR(30),
+    status 		VARCHAR(20),
+    total_price FLOAT,
+    PRIMARY KEY (order_id)
+);
+
+CREATE TABLE items (
+	item_id		VARCHAR(30),
+	name		VARCHAR(30),
+    image 		VARCHAR(100),
+    retailer 	VARCHAR(50),
+    cond	 	VARCHAR(30),
+    discount 	FLOAT,
+	PRIMARY KEY(item_id)
+);
+
+CREATE TABLE OrderHistory (
+	order_id	VARCHAR(60),
+    item_id		VARCHAR(30),
+    PRIMARY KEY(order_id, item_id),
+    FOREIGN KEY(order_id) REFERENCES orders(order_id),
+    FOREIGN KEY(item_id) REFERENCES items(item_id)
+);
+
+COMMIT;
+
+INSERT INTO items
+(item_id, name, image, retailer, cond, discount)
+VALUES
+("ea_fifa", "FIFA 2016", "ea_fifa.jpg", "Electronic Arts", "New", 10.0);
