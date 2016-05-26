@@ -41,6 +41,9 @@ public class AllOrderHistoryList extends HttpServlet {
                 response.sendRedirect("Login");
                 return;
             }
+//            String sqlStatement = "SELECT id, date, delivery, user, status, total_price FROM Orders";
+//            // Type 1: order;
+//            pw.print(helper.sqlHelper(sqlStatement, 1));
             ArrayList<OrderHistory> ohs = helper.getAllOrderHistory();
             if (ohs.size() > 0) {
                 String orderId  = request.getParameter("orderId");
@@ -74,9 +77,8 @@ public class AllOrderHistoryList extends HttpServlet {
                     }
                 }
             } else {
-                pw.print("<h4 style='color:red'>Your have no order history.</h4>");
+                pw.print("<h4 style='color:red'>No order history.</h4>");
             }
-
         } catch (Exception e) {
             pw.print("<h4 style='color:red'>Oops!</h4>");
             System.out.println("error: " + e.toString());

@@ -22,6 +22,9 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,6 +36,7 @@ import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import db.*;
 
 public class Helper {
 	HttpServletRequest req;
@@ -300,10 +304,13 @@ public class Helper {
         String id = currentTime().toUpperCase() + "-" +username().toUpperCase();
         ArrayList<OrderItem> items = new ArrayList<>();
         double totalPrice = 0.0;
+		String sqlItems = "";
         for (OrderItem oi : getCustomerOrders()) {
             items.add(new OrderItem(oi));
+			sqlItems += oi.getName() + " ";
             totalPrice += oi.getPrice();
         }
+
         orderHistory.setId(id);
         orderHistory.setDate(currentDate());
         orderHistory.setDelivery(deliveryDate());
@@ -313,6 +320,29 @@ public class Helper {
         orderHistory.setItems(items);
         OrderHistoriesList.orderHistories.add(orderHistory);
         OrdersHashMap.orders.remove(username());
+
+		// insert into db
+		db.ConnectionPool pool = db.ConnectionPool.getInstance();
+		Connection connection = pool.getConnection();
+		PreparedStatement ps = null;
+		String query = "INSERT INTO CustomerOrders (id, date, delivery, user, status, total_price, items) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		try {
+			ps = connection.prepareStatement(query);
+			ps.setString(1, orderHistory.getId());
+			ps.setString(2, orderHistory.getDate());
+			ps.setString(3, orderHistory.getDelivery());
+			ps.setString(4, orderHistory.getUser());
+			ps.setString(5, orderHistory.getStatus());
+			ps.setString(6, Double.toString(orderHistory.getTotalPrice()));
+			ps.setString(7, sqlItems);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e);
+			return "SQL error: " + e;
+		} finally {
+			DBUtil.closePreparedStatement(ps);
+			pool.freeConnection(connection);
+		}
         return id;
     }
 
@@ -400,7 +430,8 @@ public class Helper {
 		return ar;
 	}
 
-	public String sqlHelper(String sqlStatement) {
+	// type 1: OrderHistory;
+	public String sqlHelper(String sqlStatement, int type) {
 		String sqlResult = "";
 		try {
 			// load the driver
@@ -421,7 +452,11 @@ public class Helper {
 					// create the HTML for the result set
 					ResultSet resultSet
 							= statement.executeQuery(sqlStatement);
-					sqlResult = SQLUtil.getHtmlTable(resultSet);
+					if (type == 1) {
+						sqlResult = SQLUtil.getOrderHtmlTable(resultSet);
+					} else {
+						sqlResult = SQLUtil.getHtmlTable(resultSet);
+					}
 					resultSet.close();
 				} else {
 					int i = statement.executeUpdate(sqlStatement);

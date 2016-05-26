@@ -21,7 +21,6 @@ public class UserOrderHistoryList extends HttpServlet {
                          HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
         displayOrderHistory(request, response);
     }
 
@@ -48,6 +47,7 @@ public class UserOrderHistoryList extends HttpServlet {
                 if (orderId != null) {
                     helper.removeOrder(orderId);
                 }
+
                 for (OrderHistory oh: ohs) {
                     if (oh.getItems().size() > 0) {
                         pw.print("<form><table>");

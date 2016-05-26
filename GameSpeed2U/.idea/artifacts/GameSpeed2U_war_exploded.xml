@@ -8,6 +8,9 @@
           <element id="module-output" name="GameSpeed2U" />
         </element>
         <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+        </element>
       </element>
     </root>
   </artifact>

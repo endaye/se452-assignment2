@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="gs" uuid="d448e682-d114-4727-a36c-5dd627cb9fe2">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>GameSpeed2U.*</schema-pattern>
+      <default-schemas>GameSpeed2U.*</default-schemas>
+    </data-source>
+  </component>
+</project>

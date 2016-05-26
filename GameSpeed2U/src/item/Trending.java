@@ -20,7 +20,7 @@ public class Trending extends HttpServlet {
 
 		Helper helper = new Helper(request, response.getWriter());
 		String sqlStatement = "select * from items";
-		String sqlResult = helper.sqlHelper(sqlStatement);
+		String sqlResult = helper.sqlHelper(sqlStatement, 0);
 		displayTrending(request, response, sqlResult);
 	}
 
