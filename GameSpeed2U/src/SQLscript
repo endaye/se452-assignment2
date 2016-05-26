@@ -1,38 +1,106 @@
+/* drop old tables */
 DROP TABLE OrderHistory CASCADE;
-DROP TABLE items CASCADE;
-DROP TABLE orders CASCADE;
+DROP TABLE Orders CASCADE;
+DROP TABLE Item CASCADE;
+DROP TABLE Cond CASCADE;
+DROP TABLE Retailer CASCADE;
+DROP TABLE Catalog CASCADE;
 
-CREATE TABLE orders (
-	order_id	VARCHAR(60),
+/* create tables */
+CREATE TABLE Catalog (
+    id      INT,
+    name    VARCHAR(30) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE Retailer (
+    id  	INT,
+    name    VARCHAR(30) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE Cond (
+    id      INT,
+    name    VARCHAR(30) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE Item (
+	id		        VARCHAR(30),
+    name		    VARCHAR(30) NOT NULL,
+    price           FLOAT CHECK (0.0 <= price AND price <= 999.99),
+    discount 	    FLOAT CHECK (0.0 <= discount AND discount <= 100.0),
+    image 		    VARCHAR(100),
+    retailer_id	    INT,
+    condition_id	INT,
+    catalog_id      INT,
+	PRIMARY KEY(id),
+	FOREIGN KEY(catalog_id) REFERENCES catalog(id),
+	FOREIGN KEY(retailer_id) REFERENCES retailer(id),
+	FOREIGN KEY(condition_id) REFERENCES cond(id)
+);
+
+CREATE TABLE Orders (
+	id	        VARCHAR(60),
     date		CHAR(10),
     delivery 	CHAR(10),
     user		VARCHAR(30),
     status 		VARCHAR(20),
     total_price FLOAT,
-    PRIMARY KEY (order_id)
-);
-
-CREATE TABLE items (
-	item_id		VARCHAR(30),
-	name		VARCHAR(30),
-    image 		VARCHAR(100),
-    retailer 	VARCHAR(50),
-    cond	 	VARCHAR(30),
-    discount 	FLOAT,
-	PRIMARY KEY(item_id)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE OrderHistory (
 	order_id	VARCHAR(60),
     item_id		VARCHAR(30),
     PRIMARY KEY(order_id, item_id),
-    FOREIGN KEY(order_id) REFERENCES orders(order_id),
-    FOREIGN KEY(item_id) REFERENCES items(item_id)
+    FOREIGN KEY(order_id) REFERENCES orders(id),
+    FOREIGN KEY(item_id) REFERENCES item(id)
 );
 
-COMMIT;
+/* populate catalog */
+INSERT INTO catalog (id, name) VALUES (0, "Other");
+INSERT INTO catalog (id, name) VALUES (1, "Game");
+INSERT INTO catalog (id, name) VALUES (2, "Console");
+INSERT INTO catalog (id, name) VALUES (3, "Accessory");
+INSERT INTO catalog (id, name) VALUES (4, "Tablet");
 
-INSERT INTO items
-(item_id, name, image, retailer, cond, discount)
+/* populate retailer */
+INSERT INTO retailer (id, name) VALUES (0, "No Retailer");
+INSERT INTO retailer (id, name) VALUES (1, "Microsoft");
+INSERT INTO retailer (id, name) VALUES (2, "Sony");
+INSERT INTO retailer (id, name) VALUES (3, "Nintendo");
+INSERT INTO retailer (id, name) VALUES (4, "Electronic Arts");
+INSERT INTO retailer (id, name) VALUES (5, "Activision");
+INSERT INTO retailer (id, name) VALUES (6, "Take-Two Interactive");
+INSERT INTO retailer (id, name) VALUES (7, "Apple");
+INSERT INTO retailer (id, name) VALUES (8, "Samsung");
+
+/* populate condition */
+INSERT INTO cond (id, name) VALUES (0, "General");
+INSERT INTO cond (id, name) VALUES (1, "New");
+INSERT INTO cond (id, name) VALUES (2, "Pre-owned");
+
+
+/* populate games */
+INSERT INTO item
+(id, name, price, discount, image, retailer_id, condition_id, catalog_id)
 VALUES
-("ea_fifa", "FIFA 2016", "ea_fifa.jpg", "Electronic Arts", "New", 10.0);
+("ea_fifa", "FIFA 2016", 59.99, 10.0, "ea_fifa.jpg", 4, 1, 1);
+
+INSERT INTO item
+(id, name, price, discount, image, retailer_id, condition_id, catalog_id)
+VALUES
+("ea_nfs", "Need for Speed", 59.99, 15.0, "Need for Speed", 4, 1, 1);
+
+INSERT INTO item
+(id, name, price, discount, image, retailer_id, condition_id, catalog_id)
+VALUES
+("activision_cod", "Call Of Duty", 54.99, 5.0, "activision_cod.jpg", 5, 1, 1);
+
+INSERT INTO item
+(id, name, price, discount, image, retailer_id, condition_id, catalog_id)
+VALUES
+("tti_evolve", "Evolve", 49.99, 10.0, "tti_evolve.jpg", 6, 1, 1);
+
+/* popular consoles */
