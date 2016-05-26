@@ -9,7 +9,7 @@
         <tablet_discount>0.0</tablet_discount>
     </tablet>
     <tablet id="ipad_pro_12">
-        <tablet_name>iPad Pro - 12.9"</tablet_name>
+        <tablet_name>iPad Pro - 12.9</tablet_name>
         <tablet_price>799.99</tablet_price>
         <tablet_image>ipad_pro_12.jpg</tablet_image>
         <tablet_retailer>Apple</tablet_retailer>
