@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TabletCatalog>
+    <tablet id="ipad_mini_4">
+        <tablet_name>iPad mini 4</tablet_name>
+        <tablet_price>399.99</tablet_price>
+        <tablet_image>ipad_mini_4.jpg</tablet_image>
+        <tablet_retailer>Apple</tablet_retailer>
+        <tablet_condition>New</tablet_condition>
+        <tablet_discount>0.0</tablet_discount>
+    </tablet>
+    <tablet id="ipad_pro_12">
+        <tablet_name>iPad Pro - 12.9</tablet_name>
+        <tablet_price>799.99</tablet_price>
+        <tablet_image>ipad_pro_12.jpg</tablet_image>
+        <tablet_retailer>Apple</tablet_retailer>
+        <tablet_condition>New</tablet_condition>
+        <tablet_discount>5.0</tablet_discount>
+    </tablet>
+    <tablet id="surface_pro_4">
+        <tablet_name>Surface Pro 4</tablet_name>
+        <tablet_price>899.99</tablet_price>
+        <tablet_image>surface_pro_4.jpg</tablet_image>
+        <tablet_retailer>Microsoft</tablet_retailer>
+        <tablet_condition>New</tablet_condition>
+        <tablet_discount>15.0</tablet_discount>
+    </tablet>
+    <tablet id="galaxy_tabpro_s">
+        <tablet_name>Galaxy TabPro S</tablet_name>
+        <tablet_price>899.99</tablet_price>
+        <tablet_image>galaxy_tabpro_s.png</tablet_image>
+        <tablet_retailer>Samsung</tablet_retailer>
+        <tablet_condition>New</tablet_condition>
+        <tablet_discount>100</tablet_discount>
+    </tablet>
+</TabletCatalog>
