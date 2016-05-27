@@ -20,6 +20,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import item.CatalogItem;
 import item.tablet.Tablet;
 import item.accessory.Accessory;
 import item.console.Console;
@@ -51,6 +52,7 @@ public class SaxParserXMLdataStore {
     private HashMap<String, Console> consoles;
     private HashMap<String, Game> games;
     private HashMap<String, Tablet> tablets;
+    private HashMap<String, CatalogItem> allItems;
 
     public SaxParserXMLdataStore(String consoleXmlFilePath) {
         if (consoleXmlFilePath.isEmpty()) {
@@ -96,6 +98,8 @@ public class SaxParserXMLdataStore {
     }
 
     public HashMap<String, Tablet> getTablets() { return this.tablets; }
+
+    public HashMap<String, CatalogItem> getAllItems() { return this.allItems; }
 
 
     private void parseDocument(String file, DefaultHandler handler) {

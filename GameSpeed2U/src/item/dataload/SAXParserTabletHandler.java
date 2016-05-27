@@ -1,5 +1,6 @@
 package item.dataload;
 
+import item.CatalogItem;
 import item.tablet.Tablet;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

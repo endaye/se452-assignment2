@@ -1,16 +1,25 @@
 
 <!-- start #sidebar-->
 <aside class="sidebar">
-	<ul>	
+	<ul>
 		<li>
 			<h4>Search Product</h4>
 			<ul>
 				<li class="text">
-					<div name="autofillform">
-						<input type="text" name="complete-field" value="" class="input" id="complete-field" onkeyup="doCompletion()" autocomplete="off" placeholder="search here.." style="padding: 5px; font-size: 16px;" />
-					<div id="auto-row">
-				</div>
-			</div>
+					<form name="autofillform" action="autocomplete">
+						<table border="0" cellpadding="1">
+							<tr>
+								<td>
+									<input type="text" name="complete-field" value="" class="input" id="complete-field" onkeyup="doCompletion()" autocomplete="off" placeholder="search here.." style="padding: 5px; font-size: 16px;" />
+								</td>
+							</tr>
+							<tr>
+								<div id="auto-row">
+									<table id="complete-table"/>
+								</div>
+							</tr>
+						</table>
+					</form>
 				</li>
 			</ul>
 		</li>
