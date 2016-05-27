@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Logout", urlPatterns = "/Logout")
 public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Helper helper = new Helper(request, null);
+		Helper helper = new Helper(request, response);
 		helper.logout();
 		response.sendRedirect("Home");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Helper helper = new Helper(request, null);
+		Helper helper = new Helper(request, response);
 		helper.logout();
 		response.sendRedirect("Home");
 	}

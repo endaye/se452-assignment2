@@ -516,3 +516,27 @@ footer .footer-bottom p {
 footer .footer-bottom p, footer .footer-bottom p a {
 	color: #eee;
 }
+
+
+.popupBox {
+	position: absolute;
+	left: 140px;
+}
+
+.popupCell {
+	background-color: #fffafa;
+}
+
+.popupCell:hover {
+	background-color: #aaaaaa;
+}
+
+.popupItem {
+	color: #333333;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+strong {
+	font-weight: bold;
+}

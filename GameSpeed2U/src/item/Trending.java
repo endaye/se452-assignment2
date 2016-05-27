@@ -1,17 +1,14 @@
 package item;
 
 import main.Helper;
-import main.SQLUtil;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "Trending", urlPatterns = "/Trending")
 public class Trending extends HttpServlet {
@@ -20,7 +17,7 @@ public class Trending extends HttpServlet {
 
 		Helper helper = new Helper(request, response.getWriter());
 		String sqlStatement = "select * from items";
-		String sqlResult = helper.sqlHelper(sqlStatement);
+		String sqlResult = helper.sqlHelper(sqlStatement, 0);
 		displayTrending(request, response, sqlResult);
 	}
 

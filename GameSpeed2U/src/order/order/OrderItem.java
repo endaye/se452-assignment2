@@ -1,12 +1,14 @@
 package order.order;
 
 public class OrderItem {
+	private String id;
 	private String name;
 	private double price;
 	private String image;
 	private String retailer;
 
-	public OrderItem(String name, double price, String image, String retailer){
+	public OrderItem(String id, String name, double price, String image, String retailer){
+		setId(id);
 		setName(name);
         setPrice(price);
         setImage(image);
@@ -14,11 +16,20 @@ public class OrderItem {
 	}
 
     public OrderItem(OrderItem oi) {
+		setId(oi.getId());
         setName(oi.getName());
         setPrice(oi.getPrice());
         setImage(oi.getImage());
         setRetailer(oi.getRetailer());
     }
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;

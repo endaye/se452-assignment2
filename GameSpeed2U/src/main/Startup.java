@@ -3,6 +3,7 @@ package main;
 import item.console.ConsoleHashMap;
 import item.dataload.SaxParserXMLdataStore;
 import item.game.GameHashMap;
+import item.accessory.AccessoryHashMap;
 import item.tablet.TabletHashMap;
 import user.account.UserHashMap;
 
@@ -22,6 +23,7 @@ public class Startup extends HttpServlet
 		new ConsoleHashMap(data.getConsoles());
 		new GameHashMap(data.getGames());
 		new TabletHashMap(data.getTablets());
+		new AccessoryHashMap(data.getAccessories());
 
 		new UserHashMap();
     }

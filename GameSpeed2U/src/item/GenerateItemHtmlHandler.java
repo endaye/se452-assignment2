@@ -4,6 +4,7 @@ import item.accessory.Accessory;
 import item.console.Console;
 import item.game.Game;
 import item.tablet.Tablet;
+import main.Helper;
 
 /**
  * generate a item HTML div
@@ -20,6 +21,11 @@ public class GenerateItemHtmlHandler {
     // Accessory
     public GenerateItemHtmlHandler(String accId, Accessory accessory, String consoleId) {
         generateAccessoryItemHtml(accId, accessory.getName(), accessory.getPrice(), accessory.getImage(), accessory.getRetailer(), consoleId);
+    }
+
+    public GenerateItemHtmlHandler(String accId, Accessory accessory) {
+        Helper helper = new Helper();
+        generateAccessoryItemHtml(accId, accessory.getName(), accessory.getPrice(), accessory.getImage(), accessory.getRetailer(), helper.getConsoleIdFromAccess(accId));
     }
 
     // Console

@@ -21,7 +21,6 @@ public class UserOrderHistoryList extends HttpServlet {
                          HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
         displayOrderHistory(request, response);
     }
 
@@ -44,10 +43,12 @@ public class UserOrderHistoryList extends HttpServlet {
             }
             ArrayList<OrderHistory> ohs = helper.getOrderHistory();
             if (ohs.size() > 0) {
+                // Cancel Order
                 String orderId  = request.getParameter("orderId");
                 if (orderId != null) {
                     helper.removeOrder(orderId);
                 }
+
                 for (OrderHistory oh: ohs) {
                     if (oh.getItems().size() > 0) {
                         pw.print("<form><table>");
@@ -64,7 +65,7 @@ public class UserOrderHistoryList extends HttpServlet {
                         }
                         pw.print("<tr><th></th><th>Total</th><th>$" + oh.getTotalPrice() + "</th></tr>");
                         pw.print("<tr><th><input hidden name='orderId' value='"+ oh.getId() +"'></input></th>");
-                        pw.print("<th></th>");
+                        pw.print("<th><input type='submit' name='ByUser' value='Update' style='float: right;'></input></th>");
                         pw.print("<th><input type='submit' name='ByUser' value='Cancel' style='float: right;'></input></th>");
                         pw.print("</tr></table></form>");
 
@@ -75,7 +76,6 @@ public class UserOrderHistoryList extends HttpServlet {
             } else {
                 pw.print("<h4 style='color:red'>Your have no order history.</h4>");
             }
-
         } catch (Exception e) {
             pw.print("<h4 style='color:red'>Oops!</h4>");
             System.out.println("error: " + e.toString());

@@ -51,18 +51,19 @@ CREATE TABLE ConsoleAccess (
 );
 
 CREATE TABLE Orders (
-	id	        VARCHAR(60),
-    date		CHAR(10),
-    delivery 	CHAR(10),
-    user		VARCHAR(30),
-    status 		VARCHAR(20),
+	  id	        VARCHAR(60),
+    date		    CHAR(10),
+    delivery 	  CHAR(10),
+    user		    VARCHAR(30),
+    status 		  VARCHAR(20),
     total_price FLOAT,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE OrderHistory (
-	order_id	VARCHAR(60),
+    order_id	VARCHAR(60),
     item_id		VARCHAR(30),
+    item_num  INT CHECK (1 <= item_num),
     FOREIGN KEY(order_id) REFERENCES Orders(id),
     FOREIGN KEY(item_id) REFERENCES Item(id)
 );
@@ -235,3 +236,10 @@ INSERT INTO ConsoleAccess
 (console_id, access_id)
 VALUES
 ("ps4", "ps4_wc");
+
+/* test orders */
+INSERT INTO Orders
+(id, date, delivery, user, status, total_price)
+VALUES
+("2016-05-26-AD-11-46-14-CDT-CUSTOMER", "05/26/2016", "06/09/2016", "customer", "comfirmed", 399.99);
+
