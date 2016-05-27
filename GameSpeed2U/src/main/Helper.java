@@ -1,6 +1,7 @@
 package main;
 
 import item.accessory.Accessory;
+import item.accessory.AccessoryHashMap;
 import item.console.Console;
 import item.console.ConsoleHashMap;
 import item.game.Game;
@@ -28,12 +29,9 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Calendar;
-
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,6 +43,8 @@ public class Helper {
 	PrintWriter pw;
 	String url;
 	HttpSession session;
+
+	public Helper() {};
 
 	public Helper(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		this.req = req;
@@ -428,6 +428,14 @@ public class Helper {
 		return hm;
 	}
 
+	public HashMap<String, Accessory> getAccessories() {
+		HashMap<String, Accessory> hm = new HashMap<String, Accessory>();
+		hm.putAll(AccessoryHashMap.microsoft);
+		hm.putAll(AccessoryHashMap.sony);
+		hm.putAll(AccessoryHashMap.nintendo);
+		return hm;
+	}
+
 	public ArrayList<String> getProducts(){
 		ArrayList<String> ar = new ArrayList<String>();
 		for(Map.Entry<String, Console> entry : getConsoles().entrySet()){
@@ -451,6 +459,19 @@ public class Helper {
 		}
 		return ar;
 	}
+
+	public String getConsoleIdFromAccess(String accId) {
+		HashMap<String, Console> consoles = this.getConsoles();
+		Iterator it = consoles.keySet().iterator();
+		while  (it.hasNext()) {
+			String id = (String) it.next();
+			if (consoles.get(id).getAccessories().containsKey(accId)) {
+				return id;
+			}
+		}
+		return null;
+	}
+
 
 	// type 1: OrderHistory;
 	public String sqlHelper(String sqlStatement, int type) {

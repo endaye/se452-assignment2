@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 
 @WebServlet(name = "AutoCompleteServlet", urlPatterns = "/autocomplete")
@@ -28,6 +27,7 @@ public class AutoCompleteServlet extends HttpServlet {
     private HashMap<String, Game> games;
     private HashMap<String, Console> consoles;
     private HashMap<String, Tablet> tablets;
+    private HashMap<String, Accessory> accessories;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -45,6 +45,7 @@ public class AutoCompleteServlet extends HttpServlet {
         games = helper.getGames();
         consoles = helper.getConsoles();
         tablets = helper.getTablets();
+        accessories = helper.getAccessories();
 
         if (targetId != null) {
             targetId = targetId.trim().toLowerCase();
@@ -108,7 +109,23 @@ public class AutoCompleteServlet extends HttpServlet {
                         namesAdded = true;
                     }
                 }
+                it = accessories.keySet().iterator();
+                while (it.hasNext()) {
+                    String id = (String) it.next();
+                    Accessory accessory = (Accessory) accessories.get(id);
 
+                    if (id.toLowerCase().startsWith(targetId) ||
+                            accessory.getName().toLowerCase().startsWith(targetId) ||
+                            accessory.getCondition().toLowerCase().startsWith(targetId) ||
+                            accessory.getRetailer().toLowerCase().startsWith(targetId)) {
+                        sb.append("<item>");
+                        sb.append("<id>" + id + "</id>");
+                        sb.append("<type>Accessory</type>");
+                        sb.append("<name>" + accessory.getName() + "</name>");
+                        sb.append("</item>");
+                        namesAdded = true;
+                    }
+                }
             }
 
             if (namesAdded) {
@@ -134,6 +151,8 @@ public class AutoCompleteServlet extends HttpServlet {
                     pw.print(new GenerateItemHtmlHandler(targetId, consoles.get(targetId)).getHtml());
                 } else if (type.equalsIgnoreCase("tablet") && tablets.containsKey(targetId.trim())) {
                     pw.print(new GenerateItemHtmlHandler(targetId, tablets.get(targetId)).getHtml());
+                } else if (type.equalsIgnoreCase("accessory") && accessories.containsKey(targetId.trim())) {
+                    pw.print(new GenerateItemHtmlHandler(targetId, accessories.get(targetId)).getHtml());
                 }
                 pw.print("</article></section>");
                 helper.printHtml("site_sidebar.html");
