@@ -1,0 +1,219 @@
+<form action='Trending'>
+    <table>
+        <thead>
+        <tr>
+            <td colspan='4'>Simple Search</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='1'> Select
+            </td>
+            <td>
+                Product Name:
+            </td>
+            <td>
+                TrendUtil.getAllProductIDFromDB()
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='2'> Select
+            </td>
+            <td>
+                Product Category:
+            </td>
+            <td>
+                TrendUtil.getAllProductCatalogFromDB()
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='3'> Select
+            </td>
+            <td>
+                Product Price:
+            </td>
+            <td>
+                <input type='number' value="0" min='0' max='5000' name='price'>
+            </td>
+            <td>
+                <input type='radio' name='priceCond' value='eq'> Equals<br>
+                <input type='radio' name='priceCond' value='gt' checked='checked'> Greater Than<br>
+                <input type='radio' name='priceCond' value='lt'> Less Than
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='4'> Select
+            </td>
+            <td>
+                Retailer:
+            </td>
+            <td>
+                <input type='text' name='retailer'>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='5'> Select
+            </td>
+            <td>
+                Retailer Zip code:
+            </td>
+            <td>
+                <input type='number' min='00000' max='99999' name='zipcode'>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='6'> Select
+            </td>
+            <td>
+                Retailer City:
+            </td>
+            <td>
+                <input type='text' name='city'>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='7'> Select
+            </td>
+            <td>
+                Retailer State:
+            </td>
+            <td>
+                <input type='text' name='state'>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='8'> Select
+            </td>
+            <td>
+                Product On Sale:
+            </td>
+            <td>
+                <input type='radio' name='onsale' value='1'> Yes
+                <input type='radio' name='onsale' value='0'> No
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='9'> Select
+            </td>
+            <td>
+                Manufacturer Name:
+            </td>
+            <td>
+                TrendUtil.getAllMakerFromDB()
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='10'> Select
+            </td>
+            <td>
+                Manufacturer Rebate:
+            </td>
+            <td>
+                <input type='radio' name='rebate' value='1'> Yes
+                <input type='radio' name='rebate' value='0'> No
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='11'> Select
+            </td>
+            <td>
+                User Id:
+            </td>
+            <td>
+                <input type='text' name='user'>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='12'> Select
+            </td>
+            <td>
+                Age:
+            </td>
+            <td>
+                <input type='number' value="20" min='0' max='99' name='age'>
+            </td>
+            <td>
+                <input type='radio' name='ageCond' value='eq'> Equals<br>
+                <input type='radio' name='ageCond' value='gt' checked='checked'> Greater Than<br>
+                <input type='radio' name='ageCond' value='lt'> Less Than
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='13'> Select
+            </td>
+            <td>
+                Gender:
+            </td>
+            <td>
+                <input type='radio' name='gender' value='eq'> Male
+                <input type='radio' name='gender' value='gt'> Female
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='14'> Select
+            </td>
+            <td>
+                Occupation:
+            </td>
+            <td>
+                <input type='text' name='job'>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='15'> Select
+            </td>
+            <td>
+                Review Rating:
+            </td>
+            <td>
+                <input type='number' value='1' min='1' max='5' name='rate'>
+            </td>
+            <td>
+                <input type='radio' name='rateCond' value='eq'> Equals<br>
+                <input type='radio' name='rateCond' value='gt' checked='checked'> Greater Than<br>
+                <input type='radio' name='rateCond' value='lt'> Less Than
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type='checkbox' name='select' value='16'> Select
+            </td>
+            <td>
+                Date:
+            </td>
+            <td>
+                <input type='text' name='date'>
+            </td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <input type='sbumit' value='Submit'>
+</form>

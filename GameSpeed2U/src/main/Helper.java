@@ -1,5 +1,7 @@
 package main;
 
+import item.CatalogItem;
+import item.ItemHashMap;
 import item.accessory.Accessory;
 import item.accessory.AccessoryHashMap;
 import item.console.Console;
@@ -89,7 +91,6 @@ public class Helper {
 			pw.print(result);
 		}
 	}
-
 
 	public String getFullURL() {
 		String scheme = req.getScheme();
@@ -361,6 +362,7 @@ public class Helper {
 		return null;
 	}
 
+
 	public ArrayList<OrderHistory> getAllOrderHistory() {
 		return OrderHistoriesList.orderHistories;
 	}
@@ -433,6 +435,11 @@ public class Helper {
 		hm.putAll(AccessoryHashMap.microsoft);
 		hm.putAll(AccessoryHashMap.sony);
 		hm.putAll(AccessoryHashMap.nintendo);
+		return hm;
+	}
+
+	public HashMap<String, CatalogItem> getAllItems() {
+		HashMap<String, CatalogItem> hm = new HashMap<>(ItemHashMap.allItems);
 		return hm;
 	}
 

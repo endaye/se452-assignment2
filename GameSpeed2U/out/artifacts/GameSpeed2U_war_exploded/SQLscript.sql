@@ -6,9 +6,34 @@ DROP TABLE Item CASCADE;
 DROP TABLE Cond CASCADE;
 DROP TABLE Retailer CASCADE;
 DROP TABLE Catalog CASCADE;
+DROP TABLE Review CASCADE;
 
 
 /* create tables */
+CREATE TABLE Gender (
+    id    INT,
+    type  VARCHAR(8),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE UserType (
+    id  INT,
+    type VARCHAR(8),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE User (
+    id      VARCHAR(30),
+    pwd     VARCHAR(30),
+    type_id INT,
+    age     INT CHECK (0 <= age AND age <= 120),
+    gender_id INT,
+    job     VARCHAR(30),
+    PRIMARY KEY(id),
+    FOREIGN KEY(type_id) REFERENCES UserType(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY(gender_id) REFERENCES Gender(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 CREATE TABLE Catalog (
     id      INT,
     name    VARCHAR(30) NOT NULL,
@@ -16,7 +41,7 @@ CREATE TABLE Catalog (
 );
 
 CREATE TABLE Retailer (
-    id  	INT,
+    id  	  INT,
     name    VARCHAR(30) NOT NULL,
     PRIMARY KEY(id)
 );
@@ -28,14 +53,14 @@ CREATE TABLE Cond (
 );
 
 CREATE TABLE Item (
-	id		        VARCHAR(30),
-    name		    VARCHAR(70) NOT NULL,
-    price           FLOAT CHECK (0.0 <= price AND price <= 999.99),
+	  id		        VARCHAR(30),
+    name		      VARCHAR(70) NOT NULL,
+    price         FLOAT CHECK (0.0 <= price AND price <= 999.99),
     discount 	    FLOAT CHECK (0.0 <= discount AND discount <= 100.0),
     image 		    VARCHAR(100),
-    retailer_id	    INT,
+    retailer_id	  INT,
     condition_id	INT,
-    catalog_id      INT,
+    catalog_id    INT,
 	PRIMARY KEY(id),
 	FOREIGN KEY(catalog_id) REFERENCES Catalog(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY(retailer_id) REFERENCES Retailer(id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -68,6 +93,39 @@ CREATE TABLE OrderHistory (
     FOREIGN KEY(item_id) REFERENCES Item(id)
 );
 
+CREATE TABLE Review (
+    user_id VARCHAR(60),
+    item_id VARCHAR(30),
+    date    CHAR(10),
+    rate    INT CHECK (1 <= rate AND rate <= 5),
+    text    VARCHAR(500),
+    PRIMARY KEY (user_id, item_id),
+    FOREIGN KEY(user_id) REFERENCES User(id),
+    FOREIGN KEY(item_id) REFERENCES Item(id)
+);
+
+/* populate gender */
+INSERT INTO gender (id, type) VALUES (0, "Female");
+INSERT INTO gender (id, type) VALUES (1, "Male");
+
+/* populate user type */
+INSERT INTO UserType (id, type) VALUES (1, "customer");
+INSERT INTO UserType (id, type) VALUES (2, "retailer");
+INSERT INTO UserType (id, type) VALUES (3, "manager");
+
+/* populate user */
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("customer", "customer", 1, 30, 0, "customer");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("retailer", "retailer", 2, 40, 1, "retailer");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("manager", "manager", 3, 50, 0, "manager");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("aa", "aa", 1, 15, 0, "student");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("bb", "bb", 1, 16, 1, "teacher");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("cc", "aa", 1, 17, 0, "student");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("dd", "bb", 1, 18, 1, "teacher");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("ee", "aa", 1, 19, 0, "student");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("ff", "bb", 1, 20, 1, "teacher");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("gg", "aa", 1, 25, 0, "student");
+INSERT INTO User (id, pwd, type_id, age, gender_id, job) VALUES ("hh", "bb", 1, 35, 1, "teacher");
+
 /* populate catalog */
 INSERT INTO catalog (id, name) VALUES (0, "Other");
 INSERT INTO catalog (id, name) VALUES (1, "Game");
@@ -90,7 +148,6 @@ INSERT INTO retailer (id, name) VALUES (8, "Samsung");
 INSERT INTO cond (id, name) VALUES (0, "General");
 INSERT INTO cond (id, name) VALUES (1, "New");
 INSERT INTO cond (id, name) VALUES (2, "Pre-owned");
-
 
 /* populate games */
 INSERT INTO item
@@ -237,9 +294,61 @@ INSERT INTO ConsoleAccess
 VALUES
 ("ps4", "ps4_wc");
 
+/* added some test reviews */
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("aa", "05/25/2016", 5, "xboxone_wc", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("aa", "05/26/2016", 3, "xboxone_sh", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("aa", "05/27/2016", 5, "xboxone", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("aa", "05/28/2016", 5, "xbox360_wa", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("bb", "05/29/2016", 2, "xbox360_mr", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("bb", "05/25/2016", 5, "xbox360", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("bb", "05/26/2016", 4, "wiiu_pc", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("bb", "05/27/2016", 1, "wiiu", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("cc", "05/28/2016", 4, "wii_rp", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("cc", "05/29/2016", 2, "wii", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("cc", "05/25/2016", 4, "tti_evolve", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("cc", "05/26/2016", 5, "surface_pro_4", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("cc", "05/27/2016", 2, "ps4_wc", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("cc", "05/28/2016", 2, "ps4", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("dd", "05/29/2016", 3, "ipad_pro_12", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("dd", "05/25/2016", 4, "ipad_mini_4", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("dd", "05/26/2016", 1, "galaxy_tabpro_s", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("dd", "05/27/2016", 4, "ea_nfs", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ee", "05/28/2016", 4, "ea_fifa", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ee", "05/29/2016", 3, "activision_cod", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ee", "05/25/2016", 5, "xboxone_wc", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ff", "05/26/2016", 4, "xboxone_sh", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ff", "05/27/2016", 2, "xboxone", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ff", "05/28/2016", 1, "xbox360_wa", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ff", "05/29/2016", 4, "xbox360_mr", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ff", "05/25/2016", 4, "xbox360", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ff", "05/26/2016", 5, "wiiu_pc", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("ff", "05/27/2016", 3, "wiiu", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/28/2016", 2, "wii_rp", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/29/2016", 4, "wii", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/25/2016", 5, "tti_evolve", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/26/2016", 5, "surface_pro_4", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/27/2016", 3, "ps4_wc", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/28/2016", 3, "ps4", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/29/2016", 1, "ipad_pro_12", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/26/2016", 5, "ipad_mini_4", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/27/2016", 2, "galaxy_tabpro_s", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/28/2016", 2, "ea_nfs", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/29/2016", 3, "ea_fifa", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/25/2016", 4, "activision_cod", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/26/2016", 1, "xboxone_wc", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/27/2016", 4, "xboxone_sh", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("gg", "05/28/2016", 4, "xboxone", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("hh", "05/29/2016", 3, "xbox360_wa", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("hh", "05/25/2016", 5, "xbox360_mr", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("hh", "05/26/2016", 4, "xbox360", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("hh", "05/27/2016", 2, "wiiu_pc", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("hh", "05/28/2016", 1, "wiiu", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("hh", "05/29/2016", 5, "wii_rp", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("hh", "05/25/2016", 5, "wii", "Good!");
+INSERT INTO Review (user_id, date, rate, item_id, text) VALUES ("hh", "05/25/2016", 5, "tti_evolve", "Good!");
+
 /* test orders */
 INSERT INTO Orders
 (id, date, delivery, user, status, total_price)
 VALUES
 ("2016-05-26-AD-11-46-14-CDT-CUSTOMER", "05/26/2016", "06/09/2016", "customer", "comfirmed", 399.99);
-
