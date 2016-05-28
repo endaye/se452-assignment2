@@ -151,8 +151,8 @@ public class Trending extends HttpServlet {
 				String cond = paras.get("priceCond")[0];
 				String symbol;
 				if (cond.equals("eq")) symbol = "=";
-				else if (cond.equals("lt")) symbol = "<=";
-				else symbol = ">=";
+				else if (cond.equals("lt")) symbol = "<";
+				else symbol = ">";
 				query.setQuery(" (SELECT name, id FROM Item WHERE price"+symbol+price+") ");
 				break;
 			}
@@ -163,8 +163,8 @@ public class Trending extends HttpServlet {
 				String cond = paras.get("rateCond")[0];
 				String symbol;
 				if (cond.equals("eq")) symbol = "=";
-				else if (cond.equals("lt")) symbol = "<=";
-				else symbol = ">=";
+				else if (cond.equals("lt")) symbol = "<";
+				else symbol = ">";
 				query.setQuery(" (SELECT item_id, CEILING(AVG(rate)) AS rate FROM Review GROUP BY item_id HAVING rate"+symbol+rate+") ");
 				break;
 			}
@@ -228,8 +228,6 @@ public class Trending extends HttpServlet {
 		}
 
 	}
-
-
 
 	private void displayHtmlForm(PrintWriter pw) {
 		String out = "";
